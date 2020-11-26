@@ -1,0 +1,17 @@
+.SearchInput {
+  align-items: center;
+  border-radius: 20px;
+  border: 2px solid #19232C;
+  display: flex;
+  height: 32px;
+  justify-content: space-between;
+  padding: 0 16px;
+  position: relative;
+  width: 100%;
+
+  .searchField {
+    background: transparent;
+    border: none;
+  }
+  
+}
