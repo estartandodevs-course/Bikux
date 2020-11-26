@@ -5,7 +5,7 @@ const iconImg = (strIcon) => require(`../../assets/icons/${strIcon}.png`).defaul
 
 const Icon = ({ name, size = 24 }) => {
   return (
-    <img src={iconImg(name)} style={{height: `${size}px`}} className="Icon" />
+    <img src={iconImg(name)} alt="Ícone" style={{height: `${size}px`}} className="Icon" />
   );
 }
  
