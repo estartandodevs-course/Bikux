@@ -1,0 +1,59 @@
+@font-face {
+	font-family: 'Kanit';
+	src: url(../assets/fonts/Kanit-Regular.ttf)
+};
+
+@font-face {
+	font-family: 'Carrois Gothic';
+	src: url(../assets/fonts/CarroisGothic-Regular.ttf)
+};
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+body, html {
+    height: 100%;
+    width: 100%;
+  }
+
+h1, h2, h3, h4, h5, h6, .sub-1, .sub-2, .sub-3, .sub-4 {
+    font-family: 'Kanit', sans-serif;
+    line-height: 120%;
+}
+
+h1 { font-size: 48px; } 
+
+h2 { font-size: 39px; } 
+
+h3 { font-size: 31px; } 
+
+h4 { font-size: 25px; }
+
+h5 { font-size: 20px; }
+
+h6 { font-size: 18px; }
+
+.sub-1 { font-size: 25px; }
+
+.sub-2 { font-size: 22px; }
+
+.sub-3 { font-size: 20px; }
+
+.sub-4 { font-size: 18px; }
+
+label, input, .body-1, .body-2, .strong-1, .strong-2, .link-1, .link-2 {
+    font-family: 'Carrois Gothic', sans-serif;
+}
+
+label { font-size: 12px;}
+
+.body-1, .strong-1, .link-1 {
+    font-size: 16px;
+}
+
+.body-2, .strong-2, .link-2, input {
+    font-size: 14px;
+}
+
