@@ -1,9 +1,11 @@
 import logo from './assets/images/logo.svg';
-import './App.css';
+import { Header } from './components'
+import './styles/index.scss';
 
 function App() {
   return (
     <div className="App">
+      <Header logo={logo} showBackButton showExitButton />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
