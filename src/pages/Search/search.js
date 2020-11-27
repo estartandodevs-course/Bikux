@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Search = () => (
     <div>
-    <h1>Search</h1>
+    <h3>Search</h3>
     </div>
     
 )
