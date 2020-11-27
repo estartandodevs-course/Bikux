@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header logo={logo} showBackButton showExitButton />
-      <JobCard BadgesList = {["Leblon", "CLT", "com experiência"]} Title = "Assistente de Criação" jobImage = "https://picsum.photos/100/100?random=2" jobDescription = 'Empresa XPTO procura assistente de criação para atuar em agência. '/>
+      <JobCard BadgesList = {["Leblon", "CLT", "sem experiência"]} Title = "Assistente de Criação" jobImage = "https://picsum.photos/100/100?random=2" jobDescription = 'Empresa XPTO procura assistente de criação para atuar em agência. '/>
     </div>
   );
 }
