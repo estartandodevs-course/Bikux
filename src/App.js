@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from './assets/images/logo.svg';
-import { Header } from './components'
+import { Header} from './components'
 import './styles/index.scss';
 import { Vaga } from './pages/Vaga/Vaga'
 import { Feed } from './pages/Feed/Feed'
