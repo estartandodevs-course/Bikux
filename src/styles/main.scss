@@ -4,6 +4,21 @@
 };
 
 @font-face {
+	font-family: 'Kanit';
+	src: url(../assets/fonts/Kanit-Light.ttf)
+};
+
+@font-face {
+	font-family: 'Kanit';
+	src: url(../assets/fonts/Kanit-ExtraLight.ttf)
+};
+
+@font-face {
+	font-family: 'Kanit';
+	src: url(../assets/fonts/Kanit-Medium.ttf)
+};
+
+@font-face {
 	font-family: 'Carrois Gothic';
 	src: url(../assets/fonts/CarroisGothic-Regular.ttf)
 };
@@ -18,7 +33,7 @@ body, html {
     width: 100%;
   }
 
-h1, h2, h3, h4, h5, h6, .sub-1, .sub-2, .sub-3, .sub-4 {
+h1, h2, h3, h4, h5, h6, label, input, .sub-1, .sub-2, .sub-3, .sub-4 {
     font-family: 'Kanit', sans-serif;
     line-height: 120%;
 }
@@ -43,7 +58,7 @@ h6 { font-size: 18px; }
 
 .sub-4 { font-size: 18px; }
 
-label, input, .body-1, .body-2, .strong-1, .strong-2, .link-1, .link-2 {
+ .body-1, .body-2, .strong-1, .strong-2, .link-1, .link-2 {
     font-family: 'Carrois Gothic', sans-serif;
 }
 
