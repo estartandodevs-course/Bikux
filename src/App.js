@@ -1,15 +1,36 @@
 import React from 'react'
 import logo from './assets/images/logo.svg';
-import { Header, JobCard } from './components'
+import { Header} from './components'
 import './styles/index.scss';
+import { Vaga } from './pages/Vaga/Vaga'
+import { Feed } from './pages/Feed/Feed'
+import { Search } from './pages/Search/Search'
+import  BottomNavBar  from './components/BottomNavBar/BottomNavBar'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
-function App() {
+export function App(){
   return (
-    <div className="App">
-      <Header logo={logo} showBackButton showExitButton />
-      <JobCard BadgesList = {["Leblon", "CLT", "sem experiência"]} Title = "Assistente de Criação" jobImage = "https://picsum.photos/100/100?random=2" jobDescription = 'Empresa XPTO procura assistente de criação para atuar em agência. '/>
-    </div>
+    <Router>
+       <Header logo={logo} showBackButton showExitButton />
+      <Switch>
+        <Route path="/" exact>
+          <Feed />
+        </Route>
+        <Route path="/vaga">
+          <Vaga />
+        </Route>
+        <Route path="/search">
+          <Search />
+        </Route>
+      </Switch>
+      <BottomNavBar showAddVagaButton showHomeButton showSearchButton showNotificacionButton/>
+    </Router>
   );
 }
 
 export default App;
+
