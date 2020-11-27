@@ -2,7 +2,7 @@ import React from 'react'
 import logo from './assets/images/logo.svg';
 import { Header } from './components'
 import './styles/index.scss';
-import { Home } from './pages/Home/home'
+import { Vaga } from './pages/Vaga/Vaga'
 import { Feed } from './pages/Feed/feed'
 import { Search } from './pages/Search/search'
 import  BottomNavBar  from './components/BottomNavBar/BottomNavBar'
@@ -18,10 +18,10 @@ export function App(){
        <Header logo={logo} showBackButton showExitButton />
       <Switch>
         <Route path="/" exact>
-          <Home />
-        </Route>
-      <Route path="/feed">
           <Feed />
+        </Route>
+      <Route path="/vaga">
+          <Vaga />
         </Route>
         <Route path="/search">
           <Search />
