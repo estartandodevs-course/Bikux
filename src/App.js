@@ -1,22 +1,36 @@
 import React from 'react'
-import './App.css';
 import logo from './assets/images/logo.svg';
 import { Header } from './components'
-import  BottomNavBar  from './components/BottomNavBar/BottomNavBar'
 import './styles/index.scss';
+import { Home } from './pages/Home/home'
+import { Feed } from './pages/Feed/feed'
+import { Search } from './pages/Search/search'
+import  BottomNavBar  from './components/BottomNavBar/BottomNavBar'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
-
-function App() {
+export function App(){
   return (
-    <div className="App">
-
-     
-      <Header logo={logo} showBackButton showExitButton />
-
+    <Router>
+       <Header logo={logo} showBackButton showExitButton />
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+      <Route path="/feed">
+          <Feed />
+        </Route>
+        <Route path="/search">
+          <Search />
+        </Route>
+      </Switch>
       <BottomNavBar showAddVagaButton showHomeButton showSearchButton showNotificacionButton/>
-
-    </div>
+    </Router>
   );
 }
 
 export default App;
+
