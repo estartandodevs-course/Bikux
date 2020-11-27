@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss', '../../styles/main.scss';
+
+.badges {
+    background-color:  $color-orange-light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0 5px;
+    border-radius: 16px;
+    min-width: 30px;
+    height: 20px;
+    margin: 2px 4px;
+    color: $color-white;
+
+    &:nth-child(2) {
+        background-color: $color-green-dark;
+    }
+
+    &:nth-child(3) {
+        background-color: $color-green-light;
+        color: $color-black;
+    }
+    
+    .badge-content {
+        font-family: "Kanit";
+        font-weight: 500;
+        font-size: 12px;
+    }
+}
