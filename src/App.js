@@ -7,7 +7,6 @@ import { Feed } from "./pages/Feed/Feed";
 import { Search } from "./pages/Search/Search";
 import BottomNavBar from "./components/BottomNavBar/BottomNavBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import jobList from "./jobList";
 
 export function App() {
   return (
