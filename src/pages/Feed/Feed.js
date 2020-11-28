@@ -1,10 +1,11 @@
 import React from "react";
 import JobCard from "../../components/JobCard/JobCard";
 import jobList from "../../jobList";
+import "./Feed.scss";
 
 export const Feed = () => {
   return (
-    <section>
+    <section className="container">
       {jobList.map((info) => (
         <JobCard
           id={info.id}
