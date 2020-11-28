@@ -1,10 +1,20 @@
-import React from 'react'
-import  JobCard  from '../../components/JobCard/JobCard'
+import React from "react";
+import JobCard from "../../components/JobCard/JobCard";
+import jobList from "../../jobList";
+import "./Feed.scss";
 
-export const Feed = () => (
-    <div>
-     <JobCard BadgesList = {["Leblon", "CLT", "sem experiência"]} Title = "Assistente de Criação" jobImage = "https://picsum.photos/100/100?random=2" jobDescription = 'Empresa XPTO procura assistente de criação para atuar em agência. '/>
-    </div>
-    
-)
-
+export const Feed = () => {
+  return (
+    <section className="container">
+      {jobList.map((info) => (
+        <JobCard
+          id={info.id}
+          badgesList={info.badgesList}
+          title={info.title}
+          jobImage={info.jobImage}
+          jobDescription={info.jobDescription}
+        />
+      ))}
+    </section>
+  );
+};
