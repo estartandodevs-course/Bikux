@@ -30,7 +30,8 @@ const jobList = [
     jobImage: "https://picsum.photos/100/100?random=4",
     jobDescription:
       "Empresa XPTO procura desenvolvedor web para atuar em na criação de páginas web responsivas. Empresa XPTO procura tester para atuar em projetos para cliente internacional.",
-  },
+  }
+  
 ];
 
 export default jobList;

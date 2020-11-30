@@ -4,7 +4,7 @@ import { ActionButton } from "../";
 import "./JobCard.scss";
 
 function JobCard(props) {
-  const { title, jobImage, jobDescription, badgesList } = props;
+  const { title, jobImage, jobDescription, badgesList, actionTellAFriend, actionFavorite, actionSeeMore } = props;
 
   return (
     <div className="job-card-container">
@@ -23,17 +23,17 @@ function JobCard(props) {
           className="button"
           icon="002-indique"
           iconSize="16"
-          onClick={() => console.log("indicou")}
+          onClick={actionTellAFriend}
         />
         <ActionButton
           icon="014-favoritar"
           iconSize="16"
-          onClick={() => console.log("favoritou")}
+          onClick={actionFavorite}
         />
         <ActionButton
           icon="016-seemore"
           iconSize="16"
-          onClick={() => console.log("viu mais")}
+          onClick={actionSeeMore}
         />
       </div>
     </div>
