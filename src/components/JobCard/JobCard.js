@@ -24,16 +24,19 @@ function JobCard(props) {
           icon="002-indique"
           iconSize="16"
           onClick={actionTellAFriend}
+          disabled = {false}
         />
         <ActionButton
           icon="014-favoritar"
           iconSize="16"
           onClick={actionFavorite}
+          disabled = {false}
         />
         <ActionButton
           icon="016-seemore"
           iconSize="16"
           onClick={actionSeeMore}
+          disabled = {false}
         />
       </div>
     </div>

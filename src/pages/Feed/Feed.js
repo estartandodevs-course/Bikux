@@ -7,10 +7,14 @@ import "./Feed.scss";
 export const Feed = () => {
 
   const [isItAble, setIsItAble] = useState (false);
+  const [jobTitle, setJobTitle] = useState ('');
+  const [jobIndex, setJobIndex] = useState ('');
+
   
   function tellAFriend (toBeIndicated) {
     const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
-    console.log ("indicou para vaga de ", toBeIndicated.title, "cujo index é:", indexOftoBeIndicated);
+    setJobTitle (toBeIndicated.title);
+    setJobIndex (indexOftoBeIndicated);
     setIsItAble (true);
 
   }
@@ -46,7 +50,7 @@ export const Feed = () => {
           />
       ))}
 
-    {isItAble && <TellAFriendModal  close = {closeTellAFriend}/>}
+    {isItAble && <TellAFriendModal  jobTitle = {jobTitle} jobIndex = {jobIndex} close = {closeTellAFriend}/>}
 
     </section>
   );

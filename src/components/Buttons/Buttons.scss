@@ -1,0 +1,53 @@
+@import "../../styles/variables.scss", "../../styles/main.scss";
+
+%Buttons-basic {
+    border-radius: 8px;
+    width: 301px;
+    height: 56px;
+    margin: auto;
+    border-bottom: solid 4px rgba(0, 0, 0, 0.25);
+}
+
+.primary {
+    @extend %Buttons-basic;
+    background-color: $color-green-dark;
+
+    .Button-children {
+        color: $color-white;
+        font-family: "Kanit";
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.secondary {
+    @extend %Buttons-basic;
+    background-color: $color-orange-dark;
+
+    .Button-children {
+        color: $color-white;
+        font-family: "Kanit";
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.disabled {
+    @extend %Buttons-basic;
+    background-color: $color-disabled;
+
+    .Button-children {
+        color: $color-white;
+        font-family: "Kanit";
+        font-weight: 500;
+        font-size: 20px;
+    }
+}

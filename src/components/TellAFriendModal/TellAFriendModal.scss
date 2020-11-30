@@ -17,7 +17,7 @@
 
 
     .modal {
-        @include simple-flex(column, space-between, center);
+        @include simple-flex(column, space-around, center);
 
         width: 328px;
         min-height: 352px;
@@ -41,6 +41,33 @@
                 color: $color-black;
                 font-weight: 900;
             }
+        }
+
+        .title {
+            width: 264px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 21px;
+            margin-bottom: 12px;
+        }
+
+        .email {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+
+            align-self: flex-start;
+            margin-left: 18px;
+        }
+
+        .tell-a-friend-input {
+            width: 297px;
+            height: 35.9px;
+            border-radius: 3px;
+            box-sizing: border-box;
+            border: 1px solid $color-black;
+            padding-left: 11px;
+
         }
     }
 }

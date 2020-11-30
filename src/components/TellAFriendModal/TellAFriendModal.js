@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TellAFriendModal.scss";
 import { Icon } from '../index'
-import { ActionButton } from "../";
+import Buttons from "../Buttons/Buttons";
 
 function TellAFriendModal (props) {
 
-    const {close} = props;
+    const {close, jobTitle, jobIndex} = props;
+
+    const [email, setEmail] = useState("");
+
+    function createObjectToBeShared () {
+        const JobAndFriendData = {
+            title: jobTitle,
+            index: jobIndex,
+            friendEmail: email
+        };
+
+        console.log (JobAndFriendData);
+        setTimeout (close, 200)
+    }
+
+    function Input (event) {
+        setEmail (event.target.value);
+    }
+    
         return (
         <div className = "modal-container">
 
@@ -17,20 +35,18 @@ function TellAFriendModal (props) {
 
                 <Icon name= "002-indique" size="64" />
 
-                <h3>Indique esta vaga para um amigo</h3>
+                <h4 className = "title">Indique esta vaga para um amigo</h4>
 
-                <span>E-mail</span>
+                <span className = "email">E-mail</span>
 
                 <input
-                    type="text"
-                    placeholder="Digite aqui o e-mail do seu amigo"
                     className="tell-a-friend-input"
+                    type="text"
+                    onChange = {Input}
+                    placeholder="Digite aqui o e-mail do seu amigo"
                 />
 
-                <ActionButton
-                    className="button"
-                    children = "Primary"
-                />
+                <Buttons isPrimary = {true} disabled = {false} children = "Primary" onClick = {createObjectToBeShared}/>
                 
             </div>
 

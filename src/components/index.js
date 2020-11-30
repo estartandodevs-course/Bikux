@@ -4,6 +4,7 @@ import JobCard from './JobCard/JobCard';
 import SearchInput from './SearchInput/SearchInput';
 import Icon from './Icon/Icon';
 import TellAFriendModal from './TellAFriendModal/TellAFriendModal';
+import Buttons from './Buttons/Buttons';
 
 export {
   ActionButton,
@@ -11,5 +12,6 @@ export {
   Icon,
   SearchInput,
   JobCard,
-  TellAFriendModal
+  TellAFriendModal,
+  Buttons
 }
