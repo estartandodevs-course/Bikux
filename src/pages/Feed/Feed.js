@@ -1,28 +1,36 @@
-import React from "react";
-import JobCard from "../../components/JobCard/JobCard";
+import React, { useState } from "react";
+import {JobCard, TellAFriendModal} from "../../components/index";
 import jobList from "../../_mocks/jobList";
 import "./Feed.scss";
 
-function tellAFriend (toBeIndicated) {
-  const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
-  console.log ("indicou para vaga de ", toBeIndicated.title, "cujo index é:", indexOftoBeIndicated,);
-
-}
-
-function Favorite (toBeIndicated) {
-  const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
-  console.log ("favoritou a vaga de ", toBeIndicated.title, "cujo index é:", indexOftoBeIndicated,);
-
-}
-
-function SeeMore (toBeIndicated) {
-  const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
-  console.log ("quis ver a vaga de ", toBeIndicated.title, "cujo index é:", indexOftoBeIndicated,);
-
-}
-
 
 export const Feed = () => {
+
+  const [isItAble, setIsItAble] = useState (false);
+  
+  function tellAFriend (toBeIndicated) {
+    const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
+    console.log ("indicou para vaga de ", toBeIndicated.title, "cujo index é:", indexOftoBeIndicated);
+    setIsItAble (true);
+
+  }
+
+  function closeTellAFriend () {
+    setIsItAble (false);
+  }
+
+  function Favorite (toBeFavorite) {
+    const indexOftoBeFavorite = jobList.indexOf(toBeFavorite);
+    console.log ("favoritou a vaga de ", toBeFavorite.title, "cujo index é:", indexOftoBeFavorite);
+
+  }
+
+  function SeeMore (toBeSaw) {
+    const indexOftoBeSaw = jobList.indexOf(toBeSaw);
+    console.log ("quis ver a vaga de ", toBeSaw.title, "cujo index é:", indexOftoBeSaw);
+
+  }
+
   return (
     <section className="container">
       {jobList.map((info) => (
@@ -37,6 +45,9 @@ export const Feed = () => {
           actionSeeMore = {SeeMore.bind(this, info)}
           />
       ))}
+
+    {isItAble && <TellAFriendModal  close = {closeTellAFriend}/>}
+
     </section>
   );
 };
