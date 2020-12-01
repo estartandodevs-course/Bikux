@@ -46,7 +46,7 @@ function TellAFriendModal (props) {
                     placeholder="Digite aqui o e-mail do seu amigo"
                 />
 
-                <Buttons isPrimary = {true} disabled = {false} children = "Primary" onClick = {createObjectToBeShared}/>
+                <Buttons isPrimary = {true} isOutline = {false} disabled = {false} children = "Indicar" onClick = {createObjectToBeShared}/>
                 
             </div>
 

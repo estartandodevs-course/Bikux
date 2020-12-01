@@ -6,6 +6,17 @@
     height: 56px;
     margin: auto;
     border-bottom: solid 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+%button-children {
+    font-family: "Kanit";
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .primary {
@@ -14,13 +25,18 @@
 
     .Button-children {
         color: $color-white;
-        font-family: "Kanit";
-        font-weight: 500;
-        font-size: 20px;
+        @extend %button-children;
     }
+}
 
-    &:focus {
-        outline: none;
+.primary-outline {
+    @extend %Buttons-basic;
+    background-color: $color-white;
+    border: 2px solid $color-green-dark;
+
+    .Button-children {
+        color: $color-green-dark;
+        @extend %button-children;
     }
 }
 
@@ -30,13 +46,18 @@
 
     .Button-children {
         color: $color-white;
-        font-family: "Kanit";
-        font-weight: 500;
-        font-size: 20px;
+        @extend %button-children;
     }
+}
 
-    &:focus {
-        outline: none;
+.secondary-outline {
+    @extend %Buttons-basic;
+    background-color: $color-white;
+    border: 2px solid $color-orange-dark;
+
+    .Button-children {
+        color: $color-orange-dark;
+        @extend %button-children;
     }
 }
 
@@ -46,8 +67,17 @@
 
     .Button-children {
         color: $color-white;
-        font-family: "Kanit";
-        font-weight: 500;
-        font-size: 20px;
+        @extend %button-children;
+    }
+}
+
+.disabled-outline {
+    @extend %Buttons-basic;
+    background-color: $color-white;
+    border: 2px solid $color-disabled;
+
+    .Button-children {
+        color: $color-disabled;
+        @extend %button-children;
     }
 }
