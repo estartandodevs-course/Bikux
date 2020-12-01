@@ -3,10 +3,10 @@ import './Buttons.scss'
 
 function Buttons (props) {
 
-    const {onClick, children, disabled, isPrimary } = props;
+    const {onClick, children, disabled, isPrimary, isOutline} = props;
     
-    const Class = isPrimary ? "primary" : disabled ? "disabled" : "secondary";
-   
+    const ClassPrimary = disabled ? "disabled" : isPrimary ? "primary" : "secondary";
+    const Class = isOutline ? ClassPrimary + "-outline" : ClassPrimary;
 
   return (
     <button className = {Class} disabled = {disabled} onClick={onClick} >
