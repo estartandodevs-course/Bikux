@@ -1,0 +1,74 @@
+@import "../../styles/variables.scss", "../../styles/main.scss";
+
+@mixin simple-flex($direction: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+  }
+
+.modal-container {
+    @include simple-flex(row, center, center);
+
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+
+
+    .modal {
+        @include simple-flex(column, space-around, center);
+
+        width: 328px;
+        min-height: 352px;
+        background-color: $color-white;
+        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+
+        .close-button-container {
+            @include simple-flex(row, center, center);
+
+            margin-top: 16px;
+            margin-bottom: 4.1px;
+            margin-right: 16px;
+            align-self: flex-end;
+            background-color: $color-green-dark;
+            width: 24.9px;
+            height: 24.9px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            .close-button {
+                color: $color-black;
+                font-weight: 900;
+            }
+        }
+
+        .title {
+            width: 264px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 21px;
+            margin-bottom: 12px;
+        }
+
+        .email {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+
+            align-self: flex-start;
+            margin-left: 18px;
+        }
+
+        .tell-a-friend-input {
+            width: 297px;
+            height: 35.9px;
+            border-radius: 3px;
+            box-sizing: border-box;
+            border: 1px solid $color-black;
+            padding-left: 11px;
+
+        }
+    }
+}
