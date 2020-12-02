@@ -19,25 +19,33 @@ function JobCard(props) {
       </div>
       <p className="job-description">{jobDescription}</p>
       <div className="buttons-container">
-        <ActionButton
-          className="button"
-          icon="002-indique"
-          iconSize="16"
-          onClick={actionTellAFriend}
-          disabled = {false}
-        />
-        <ActionButton
-          icon="014-favoritar"
-          iconSize="16"
-          onClick={actionFavorite}
-          disabled = {false}
-        />
-        <ActionButton
-          icon="016-seemore"
-          iconSize="16"
-          onClick={actionSeeMore}
-          disabled = {false}
-        />
+        <div className = "each-button-container">
+          <ActionButton
+            className="button"
+            icon="002-indique"
+            iconSize="16"
+            onClick={actionTellAFriend}
+            disabled = {false}
+          />
+        </div>
+
+        <div className = "each-button-container">
+          <ActionButton
+            icon="014-favoritar"
+            iconSize="16"
+            onClick={actionFavorite}
+            disabled = {false}
+          />
+        </div>
+
+        <div className = "each-button-container">
+          <ActionButton
+            icon="016-seemore"
+            iconSize="16"
+            onClick={actionSeeMore}
+            disabled = {false}
+          />
+        </div>
       </div>
     </div>
   );

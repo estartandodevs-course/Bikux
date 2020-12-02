@@ -29,12 +29,12 @@
     .badges-and-title-container {
       padding-left: 8px;
 
-      .title {
+      .title-details {
         max-width: 232px;
         text-align: start;
         margin-bottom: 10px;
         margin-top: 0;
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 500;
         font-family: "Kanit";
         color: $color-black;
@@ -47,22 +47,33 @@
     }
   }
 
-  .job-description {
+  .job-description-title {
     text-align: start;
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 300;
     font-family: "Carrois Gothic";
-    margin-top: 16px;
-    margin-bottom: 23px;
+    margin-top: 27.5px;
+    margin-bottom: 16px;
     color: $color-black;
   }
 
-  .buttons-container {
-    width: 100%;
-    @include simple-flex(row, flex-end, center);
+  .details {
+    font-family: "Carrois Gothic";
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 16px;  
+  }
 
-    .each-button-container {
-      margin-left: 16px;
-    }
+  .buttons-container-details {
+    width: 100%;
+    @include simple-flex(row, space-between, center);
+    margin-bottom: 20px;
+  }
+
+  .denounce-container {
+    width: 100%;
+    @include simple-flex(row, center, center);
+    margin-top: 20px;
+    margin-bottom: 60px;
   }
 }

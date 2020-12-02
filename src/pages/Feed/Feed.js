@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {JobCard, TellAFriendModal} from "../../components/index";
+import {JobCard, TellAFriendModal, JobDetails} from "../../components/index";
 import jobList from "../../_mocks/jobList";
 import "./Feed.scss";
 
@@ -51,7 +51,7 @@ export const Feed = () => {
       ))}
 
     {isItAble && <TellAFriendModal  jobTitle = {jobTitle} jobIndex = {jobIndex} close = {closeTellAFriend}/>}
-
+        <JobDetails  indexOfCardToBeDetailed = {0} isUserNotLogged = {false}/>
     </section>
   );
 };

@@ -5,6 +5,7 @@ import SearchInput from './SearchInput/SearchInput';
 import Icon from './Icon/Icon';
 import TellAFriendModal from './TellAFriendModal/TellAFriendModal';
 import Buttons from './Buttons/Buttons';
+import JobDetails from './JobDetails/JobDetails';
 
 export {
   ActionButton,
@@ -13,5 +14,6 @@ export {
   SearchInput,
   JobCard,
   TellAFriendModal,
-  Buttons
+  Buttons,
+  JobDetails
 }
