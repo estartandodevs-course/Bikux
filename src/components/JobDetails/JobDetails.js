@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Badges from "../Badges/Badges";
-import { ActionButton, TellAFriendModal} from "../";
+import { ActionButton} from "../";
 import "./JobDetails.scss";
 import jobList from "../../_mocks/jobList";
 import Buttons from "../Buttons/Buttons";
