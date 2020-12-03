@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import {JobCard, TellAFriendModal, JobDetails} from "../../components/index";
+import React, { Children, useState } from "react";
+import {JobCard, TellAFriendModal, JobDetails, Buttons} from "../../components/index";
 import jobList from "../../_mocks/jobList";
 import "./Feed.scss";
+import { useHistory } from "react-router-dom";
 
 
 export const Feed = () => {
@@ -9,6 +10,10 @@ export const Feed = () => {
   const [isItAble, setIsItAble] = useState (false);
   const [jobTitle, setJobTitle] = useState ('');
   const [jobIndex, setJobIndex] = useState ('');
+  const [IndexOftoBeSaw, SetIndexOftoBeSaw] = useState ('');
+  const history = useHistory();
+
+
 
   
   function tellAFriend (toBeIndicated) {
@@ -28,11 +33,10 @@ export const Feed = () => {
     console.log ("favoritou a vaga de ", toBeFavorite.title, "cujo index é:", indexOftoBeFavorite);
 
   }
-
+    
   function SeeMore (toBeSaw) {
-    const indexOftoBeSaw = jobList.indexOf(toBeSaw);
-    console.log ("quis ver a vaga de ", toBeSaw.title, "cujo index é:", indexOftoBeSaw);
-
+    SetIndexOftoBeSaw(jobList.indexOf(toBeSaw));
+    
   }
 
   return (
@@ -47,11 +51,11 @@ export const Feed = () => {
           actionTellAFriend = {tellAFriend.bind(this, info)} 
           actionFavorite = {Favorite.bind(this, info)}
           actionSeeMore = {SeeMore.bind(this, info)}
+
           />
       ))}
-
-    {isItAble && <TellAFriendModal  jobTitle = {jobTitle} jobIndex = {jobIndex} close = {closeTellAFriend}/>}
-        <JobDetails  indexOfCardToBeDetailed = {0} isUserNotLogged = {false}/>
+      <Buttons onClick = {() => history.push(`/details/${IndexOftoBeSaw}`)} children = "provisory Button"/>
+      {isItAble && <TellAFriendModal  jobTitle = {jobTitle} jobIndex = {jobIndex} close = {closeTellAFriend}/>}
     </section>
   );
 };

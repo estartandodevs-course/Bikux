@@ -6,9 +6,9 @@ import jobList from "../../_mocks/jobList";
 import Buttons from "../Buttons/Buttons";
 
 function JobDetails(props) {
-  const {indexOfCardToBeDetailed, isUserNotLogged} = props;
+  const {indexOfCardToBeDetailed, isUserNotLogged, TellAFriend, favorite, IWantThisJob, denounce} = props;
 
-  const [isItAble, setIsItAble] = useState (false);
+  
 
   function getDataFromCardToBeDetailed (indexOfCardToBeDetailed) {
      return jobList.filter ((item) => {
@@ -65,25 +65,6 @@ function getDetails () {
 
 const Details = getDetails ();
 
-function favorite () {
-    console.log ("favoritou a vaga de ", title, "cujo index é:", indexOfCardToBeDetailed);
-}
-
-function TellAFriend () {
-    setIsItAble (true);
-}
-
-function closeTellAFriend () {
-    setIsItAble (false);
-  }
-
-function IWantThisJob () {
-    console.log ("quero a vaga de ", title, "cujo index é:", indexOfCardToBeDetailed);
-}
-
-function denounce() {
-    console.log ("denunciou de ", title, "cujo index é:", indexOfCardToBeDetailed);
-}
 
   return (
     <div className="job-card-container">
@@ -125,8 +106,6 @@ function denounce() {
             disabled = {false}
             />
       </div>
-
-      {isItAble && <TellAFriendModal  jobTitle = {title} jobIndex = {indexOfCardToBeDetailed} close = {closeTellAFriend}/>}
     </div>
   );
 }

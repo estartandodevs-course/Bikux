@@ -4,7 +4,10 @@ import { ActionButton } from "../";
 import "./JobCard.scss";
 
 function JobCard(props) {
-  const { title, jobImage, jobDescription, badgesList, actionTellAFriend, actionFavorite, actionSeeMore } = props;
+  const { title, jobImage, jobDescription, badgesList, actionTellAFriend, actionFavorite, actionSeeMore, indexOftoBeSaw } = props;
+
+
+  
 
   return (
     <div className="job-card-container">
@@ -42,7 +45,7 @@ function JobCard(props) {
           <ActionButton
             icon="016-seemore"
             iconSize="16"
-            onClick={actionSeeMore}
+            onClick = {actionSeeMore}
             disabled = {false}
           />
         </div>
