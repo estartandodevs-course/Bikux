@@ -14,7 +14,8 @@
     min-height: 100vh;
     position: fixed;
     top: 0;
-
+    background-color: $color-modal-container-background;
+    z-index: 2;
 
     .modal {
         @include simple-flex(column, space-around, center);
