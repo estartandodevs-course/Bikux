@@ -13,7 +13,11 @@ export function App() {
   return (
   <div>
       <Header logo={logo} showBackButton showExitButton />
-      <InputField type="text" placeholder="Insira seu nome" required="required" label="Nome"/>
+      <InputField 
+      type="email" 
+      placeholder="Por aqui que vamos te avisar das novidades!" 
+      required="required" 
+      label="E-mail"/>
       
       </div>    
   );
