@@ -1,0 +1,32 @@
+@import "../../components/Header/Header.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .inputArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 80%;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 27px 30px;
+
+    .btn {
+      padding-bottom: 16px;
+    }
+
+    .space-between {
+      padding-bottom: 16px;
+    }
+  }
+}

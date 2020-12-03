@@ -7,6 +7,7 @@ import { Feed } from "./pages/Feed/Feed";
 import { Search } from "./pages/Search/Search";
 import BottomNavBar from "./components/BottomNavBar/BottomNavBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Login } from "./pages/Login/Login";
 
 export function App() {
   return (
@@ -21,6 +22,9 @@ export function App() {
         </Route>
         <Route path="/search">
           <Search />
+        </Route>
+        <Route path="/login">
+          <Login logo={logo} />
         </Route>
       </Switch>
       <BottomNavBar
