@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {JobCard, TellAFriendModal} from "../../components/index";
+import inputField from '../../components/inputField/inputField';
 import jobList from "../../_mocks/jobList";
 import "./Feed.scss";
 
