@@ -1,7 +1,7 @@
 const jobList = [
   {
     id: 0,
-    badgesList: ["Leblon", "CLT", "sem experiência"],
+    badgesList: ["Leblon", "CLT", "Sem experiência"],
     title: "Assistente de Criação",
     jobImage: "https://picsum.photos/100/100?random=1",
     jobDescription:
@@ -11,7 +11,7 @@ const jobList = [
   },
   {
     id: 1,
-    badgesList: ["Remoto", "PJ", "pleno"],
+    badgesList: ["Remoto", "PJ", "Pleno"],
     title: "Analista de Testes",
     jobImage: "https://picsum.photos/100/100?random=2",
     jobDescription:
@@ -21,7 +21,7 @@ const jobList = [
   },
   {
     id: 2,
-    badgesList: ["Centro", "CLT", "sem experiência"],
+    badgesList: ["Centro", "CLT", "Sem experiência"],
     title: "Assistente de Atendimento ao Cliente",
     jobImage: "https://picsum.photos/100/100?random=3",
     jobDescription:
@@ -31,7 +31,7 @@ const jobList = [
   },
   {
     id: 3,
-    badgesList: ["Barra da Tijuca", "CLT", "sem experiência"],
+    badgesList: ["Barra da Tijuca", "CLT", "Sem experiência"],
     title: "Desenvolvedor Frontend Jr.",
     jobImage: "https://picsum.photos/100/100?random=4",
     jobDescription:

@@ -9,7 +9,7 @@ export const Feed = () => {
   const [isItAble, setIsItAble] = useState (false);
   const [jobTitle, setJobTitle] = useState ('');
   const [jobIndex, setJobIndex] = useState ('');
-  const [IndexOftoBeSaw, SetIndexOftoBeSaw] = useState ("-1");
+
   
 
 
@@ -32,11 +32,6 @@ export const Feed = () => {
     console.log ("favoritou a vaga de ", toBeFavorite.title, "cujo index é:", indexOftoBeFavorite);
 
   }
-    
-  function SeeMore (toBeSaw) {
-    SetIndexOftoBeSaw(jobList.indexOf(toBeSaw));
-    
-  }
 
   return (
     <section className="container">
@@ -49,8 +44,7 @@ export const Feed = () => {
           jobDescription = {info.jobDescription}
           actionTellAFriend = {tellAFriend.bind(this, info)} 
           actionFavorite = {Favorite.bind(this, info)}
-          actionSeeMore = {SeeMore.bind(this, info)}
-          indexOftoBeSaw = {IndexOftoBeSaw}
+          indexOftoBeSaw = {info.id}
 
           />
       ))}

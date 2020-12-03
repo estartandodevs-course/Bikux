@@ -12,21 +12,17 @@ function JobCard(props) {
     actionTellAFriend, 
     actionFavorite, 
     actionSeeMore, 
-    indexOftoBeSaw} = props;
+    indexOftoBeSaw,
+    } = props;
 
     const history = useHistory();
 
-    function IfItsTimeExecuteChangeToDetails() {
-      if(indexOftoBeSaw >= 0){
-        setTimeout (ChangeToDetails, 200);
-      }
-    }
-
-    IfItsTimeExecuteChangeToDetails()
 
     function ChangeToDetails() {
       history.push(`/detalhes/vaga/${indexOftoBeSaw}`)
     }
+
+    
   
 
   return (
@@ -65,7 +61,7 @@ function JobCard(props) {
           <ActionButton
             icon="016-seemore"
             iconSize="16"
-            onClick = {actionSeeMore}
+            onClick = {ChangeToDetails}
             disabled = {false}
           />
         </div>
