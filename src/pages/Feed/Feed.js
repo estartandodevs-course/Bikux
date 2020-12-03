@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import {JobCard, TellAFriendModal} from "../../components/index";
 import jobList from "../../_mocks/jobList";
 import "./Feed.scss";
@@ -9,6 +9,10 @@ export const Feed = () => {
   const [isItAble, setIsItAble] = useState (false);
   const [jobTitle, setJobTitle] = useState ('');
   const [jobIndex, setJobIndex] = useState ('');
+
+  
+
+
 
   
   function tellAFriend (toBeIndicated) {
@@ -29,12 +33,6 @@ export const Feed = () => {
 
   }
 
-  function SeeMore (toBeSaw) {
-    const indexOftoBeSaw = jobList.indexOf(toBeSaw);
-    console.log ("quis ver a vaga de ", toBeSaw.title, "cujo index é:", indexOftoBeSaw);
-
-  }
-
   return (
     <section className="container">
       {jobList.map((info) => (
@@ -46,12 +44,11 @@ export const Feed = () => {
           jobDescription = {info.jobDescription}
           actionTellAFriend = {tellAFriend.bind(this, info)} 
           actionFavorite = {Favorite.bind(this, info)}
-          actionSeeMore = {SeeMore.bind(this, info)}
+          indexOftoBeSaw = {info.id}
+
           />
       ))}
-
-    {isItAble && <TellAFriendModal  jobTitle = {jobTitle} jobIndex = {jobIndex} close = {closeTellAFriend}/>}
-
+      {isItAble && <TellAFriendModal  jobTitle = {jobTitle} jobIndex = {jobIndex} close = {closeTellAFriend}/>}
     </section>
   );
 };
