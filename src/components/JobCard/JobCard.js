@@ -2,11 +2,31 @@ import React from "react";
 import Badges from "../Badges/Badges";
 import { ActionButton } from "../";
 import "./JobCard.scss";
+import { useHistory } from "react-router-dom";
 
 function JobCard(props) {
-  const { title, jobImage, jobDescription, badgesList, actionTellAFriend, actionFavorite, actionSeeMore, indexOftoBeSaw } = props;
+  const { title, 
+    jobImage, 
+    jobDescription, 
+    badgesList, 
+    actionTellAFriend, 
+    actionFavorite, 
+    actionSeeMore, 
+    indexOftoBeSaw} = props;
 
+    const history = useHistory();
 
+    function IfItsTimeExecuteChangeToDetails() {
+      if(indexOftoBeSaw >= 0){
+        setTimeout (ChangeToDetails, 200);
+      }
+    }
+
+    IfItsTimeExecuteChangeToDetails()
+
+    function ChangeToDetails() {
+      history.push(`/detalhes/vaga/${indexOftoBeSaw}`)
+    }
   
 
   return (

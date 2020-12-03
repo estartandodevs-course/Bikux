@@ -5,7 +5,6 @@ import jobList from "../../_mocks/jobList";
 import "./JobDetailsPage.scss";
 
 export function JobDetailsPage () {
-    //jobTitle = {} 
     const params = useParams();
     const [isItAble, setIsItAble] = useState (false);
 

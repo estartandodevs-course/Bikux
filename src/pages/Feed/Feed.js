@@ -1,8 +1,7 @@
-import React, { Children, useState } from "react";
-import {JobCard, TellAFriendModal, JobDetails, Buttons} from "../../components/index";
+import React, {useState } from "react";
+import {JobCard, TellAFriendModal} from "../../components/index";
 import jobList from "../../_mocks/jobList";
 import "./Feed.scss";
-import { useHistory } from "react-router-dom";
 
 
 export const Feed = () => {
@@ -10,8 +9,8 @@ export const Feed = () => {
   const [isItAble, setIsItAble] = useState (false);
   const [jobTitle, setJobTitle] = useState ('');
   const [jobIndex, setJobIndex] = useState ('');
-  const [IndexOftoBeSaw, SetIndexOftoBeSaw] = useState ('');
-  const history = useHistory();
+  const [IndexOftoBeSaw, SetIndexOftoBeSaw] = useState ("-1");
+  
 
 
 
@@ -51,10 +50,10 @@ export const Feed = () => {
           actionTellAFriend = {tellAFriend.bind(this, info)} 
           actionFavorite = {Favorite.bind(this, info)}
           actionSeeMore = {SeeMore.bind(this, info)}
+          indexOftoBeSaw = {IndexOftoBeSaw}
 
           />
       ))}
-      <Buttons onClick = {() => history.push(`/details/${IndexOftoBeSaw}`)} children = "provisory Button"/>
       {isItAble && <TellAFriendModal  jobTitle = {jobTitle} jobIndex = {jobIndex} close = {closeTellAFriend}/>}
     </section>
   );
