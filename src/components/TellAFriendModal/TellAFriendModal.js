@@ -23,6 +23,8 @@ function TellAFriendModal (props) {
     function Input (event) {
         setEmail (event.target.value);
     }
+
+    console.log (Input);
     
         return (
         <div className = "modal-container">
