@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import './inputField.scss'
+import './InputField.scss'
 
 export function InputField(props) {
     const {label, type, placeholder, required, height, width} = props;                  
