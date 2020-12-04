@@ -9,8 +9,8 @@ export function JobDetailsPage () {
     const [isItAble, setIsItAble] = useState (false);
 
     const Title = jobList.filter ((item) => {
-            const indexOfItem = jobList.indexOf(item);
-            if (indexOfItem == params.indexOftoBeSaw) {
+            const indexOfItem = jobList.indexOf(item).toString();
+            if (indexOfItem === params.indexOftoBeSaw) {
                return item; 
             } 
         })

@@ -8,22 +8,12 @@ import Buttons from "../Buttons/Buttons";
 function JobDetails(props) {
   const {indexOfCardToBeDetailed, isUserNotLogged, TellAFriend, favorite, IWantThisJob, denounce} = props;
 
-  
 
   function getDataFromCardToBeDetailed (indexOfCardToBeDetailed) {
      return jobList.filter ((item) => {
-         const indexOfItem = jobList.indexOf(item);
-         if (indexOfItem == indexOfCardToBeDetailed) {
-            return (
-                {
-                key:  item.id,
-                badgesList: item.badgesList,
-                title: item.title,
-                jobImage: item.jobImage,
-                jobDescription: item.jobDescription,      
-                details: item.jobDetails
-                }
-              );
+         const indexOfItem = jobList.indexOf(item).toString();
+         if (indexOfItem === indexOfCardToBeDetailed) {
+            return item;
          } 
      })
   }
