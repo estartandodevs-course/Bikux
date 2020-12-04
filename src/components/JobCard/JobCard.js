@@ -2,9 +2,27 @@ import React from "react";
 import Badges from "../Badges/Badges";
 import { ActionButton } from "../";
 import "./JobCard.scss";
+import { useHistory } from "react-router-dom";
 
 function JobCard(props) {
-  const { title, jobImage, jobDescription, badgesList, actionTellAFriend, actionFavorite, actionSeeMore } = props;
+  const { title, 
+    jobImage, 
+    jobDescription, 
+    badgesList, 
+    actionTellAFriend, 
+    actionFavorite,  
+    indexOftoBeSaw,
+    } = props;
+
+    const history = useHistory();
+
+
+    function ChangeToDetails() {
+      history.push(`/detalhes/vaga/${indexOftoBeSaw}`)
+    }
+
+    
+  
 
   return (
     <div className="job-card-container">
@@ -19,25 +37,33 @@ function JobCard(props) {
       </div>
       <p className="job-description">{jobDescription}</p>
       <div className="buttons-container">
-        <ActionButton
-          className="button"
-          icon="002-indique"
-          iconSize="16"
-          onClick={actionTellAFriend}
-          disabled = {false}
-        />
-        <ActionButton
-          icon="014-favoritar"
-          iconSize="16"
-          onClick={actionFavorite}
-          disabled = {false}
-        />
-        <ActionButton
-          icon="016-seemore"
-          iconSize="16"
-          onClick={actionSeeMore}
-          disabled = {false}
-        />
+        <div className = "each-button-container">
+          <ActionButton
+            className="button"
+            icon="002-indique"
+            iconSize="16"
+            onClick={actionTellAFriend}
+            disabled = {false}
+          />
+        </div>
+
+        <div className = "each-button-container">
+          <ActionButton
+            icon="014-favoritar"
+            iconSize="16"
+            onClick={actionFavorite}
+            disabled = {false}
+          />
+        </div>
+
+        <div className = "each-button-container">
+          <ActionButton
+            icon="016-seemore"
+            iconSize="16"
+            onClick = {ChangeToDetails}
+            disabled = {false}
+          />
+        </div>
       </div>
     </div>
   );
