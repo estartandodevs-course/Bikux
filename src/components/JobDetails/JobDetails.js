@@ -10,15 +10,12 @@ function JobDetails(props) {
 
 
   function getDataFromCardToBeDetailed (indexOfCardToBeDetailed) {
-     return jobList.filter ((item) => {
-         const indexOfItem = jobList.indexOf(item).toString();
-         if (indexOfItem === indexOfCardToBeDetailed) {
-            return item;
-         } 
-     })
+     return jobList.filter ((item) => (item["id"]).toString() ===  indexOfCardToBeDetailed)
   }
 
+
   const itemToBeDatailed = getDataFromCardToBeDetailed (indexOfCardToBeDetailed);
+
 
 function getImage () {
     return itemToBeDatailed.map ((item) => item.jobImage)

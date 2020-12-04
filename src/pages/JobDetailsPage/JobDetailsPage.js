@@ -8,15 +8,10 @@ export function JobDetailsPage () {
     const params = useParams();
     const [isItAble, setIsItAble] = useState (false);
 
-    const Title = jobList.filter ((item) => {
-            const indexOfItem = jobList.indexOf(item).toString();
-            if (indexOfItem === params.indexOftoBeSaw) {
-               return item; 
-            } 
-        })
+    const Item = jobList.filter ((item) => (item["id"]).toString() ===  params.indexOftoBeSaw)
     
     function getTitle () {
-            const title = Title.map ((item) => item.title);
+          const title = Item.map((item) => item.title);
             const TitleReady = title.pop();
             return TitleReady;
     }
@@ -42,8 +37,9 @@ export function JobDetailsPage () {
     }
     
     function denounce() {
-        console.log ("denunciou de ", title, "cujo index é:", params.indexOftoBeSaw);
+       console.log ("denunciou de ", title, "cujo index é:", params.indexOftoBeSaw);
     }
+
 
     return (
         <main>
