@@ -1,5 +1,6 @@
 import React from "react";
 import Buttons from "../../components/Buttons/Buttons";
+import ActionButton from "../../components/ActionButton/ActionButton";
 import "../../components/Buttons/Buttons.scss";
 import "./Login.scss";
 import "../../components/Header/Header.scss";
@@ -17,7 +18,6 @@ export const Login = ({ logo, shouldHide }) => {
       </div>
       <div className="btn-container">
         <Buttons
-          className="btn"
           isPrimary={true}
           isOutline={false}
           disabled={false}
@@ -30,6 +30,16 @@ export const Login = ({ logo, shouldHide }) => {
           disabled={false}
           children="Cadastrar"
         />
+        <div className="btn-container-login">
+          <ActionButton children="Esqueci minha senha" disabled={false} />
+          <ActionButton
+            // onClick={favorite}
+            children="Entrar sem cadastro"
+            icon="021-atencao"
+            iconSize="16"
+            disabled={false}
+          />
+        </div>
       </div>
     </div>
   );
