@@ -1,6 +1,5 @@
 import React, {useState } from "react";
 import {JobCard, TellAFriendModal} from "../../components/index";
-import inputField from '../../components/inputField/inputField';
 import jobList from "../../_mocks/jobList";
 import "./Feed.scss";
 
@@ -11,11 +10,6 @@ export const Feed = () => {
   const [jobTitle, setJobTitle] = useState ('');
   const [jobIndex, setJobIndex] = useState ('');
 
-  
-
-
-
-  
   function tellAFriend (toBeIndicated) {
     const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
     setJobTitle (toBeIndicated.title);
