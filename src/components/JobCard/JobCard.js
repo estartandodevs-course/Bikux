@@ -10,8 +10,7 @@ function JobCard(props) {
     jobDescription, 
     badgesList, 
     actionTellAFriend, 
-    actionFavorite, 
-    actionSeeMore, 
+    actionFavorite,  
     indexOftoBeSaw,
     } = props;
 

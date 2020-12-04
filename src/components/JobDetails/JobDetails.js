@@ -8,27 +8,14 @@ import Buttons from "../Buttons/Buttons";
 function JobDetails(props) {
   const {indexOfCardToBeDetailed, isUserNotLogged, TellAFriend, favorite, IWantThisJob, denounce} = props;
 
-  
 
   function getDataFromCardToBeDetailed (indexOfCardToBeDetailed) {
-     return jobList.filter ((item) => {
-         const indexOfItem = jobList.indexOf(item);
-         if (indexOfItem == indexOfCardToBeDetailed) {
-            return (
-                {
-                key:  item.id,
-                badgesList: item.badgesList,
-                title: item.title,
-                jobImage: item.jobImage,
-                jobDescription: item.jobDescription,      
-                details: item.jobDetails
-                }
-              );
-         } 
-     })
+     return jobList.filter ((item) => (item["id"]).toString() ===  indexOfCardToBeDetailed)
   }
 
+
   const itemToBeDatailed = getDataFromCardToBeDetailed (indexOfCardToBeDetailed);
+
 
 function getImage () {
     return itemToBeDatailed.map ((item) => item.jobImage)
