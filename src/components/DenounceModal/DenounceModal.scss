@@ -1,0 +1,87 @@
+@import "../../styles/variables.scss", "../../styles/main.scss";
+
+@mixin simple-flex($direction: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+  }
+
+.modal-container {
+    @include simple-flex(row, center, center);
+
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: $color-modal-container-background;
+    z-index: 2;
+
+    .denounce-modal {
+        @include simple-flex(column, space-around, center);
+        width: 328px;
+        height: 440px;
+        background-color: $color-white;
+
+        .close-button-container {
+            @include simple-flex(row, center, center);
+
+            margin-top: 16px;
+            margin-bottom: 4.1px;
+            margin-right: 16px;
+            align-self: flex-end;
+            background-color: $color-green-dark;
+            width: 24.9px;
+            height: 24.9px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            .close-button {
+                color: $color-black;
+                font-weight: 900;
+            }
+        }
+
+        .title {
+            font-weight: 500;
+            font-size: 25px;
+            text-align: center;
+            margin-top: 38px;
+            margin-bottom: 33px;
+        }
+
+        .buttons-container {
+            min-width: 256px;
+            margin-bottom: 49px;
+            @include simple-flex(row, space-between, center);
+
+            .button-send {
+                margin-right: 24px;
+            }
+        }
+
+        .text-area {
+            width: 264px;
+            height: 127px;
+            background: $color-text-area;
+            border-radius: 3px;
+            border: none;
+            margin-bottom: 24px;
+            resize: none;
+            font-family: 'Kanit Regular';
+            font-weight: 400;
+            font-size: 14px;
+            padding: 8px;
+        
+
+            &:focus {
+                outline: none;
+                border: 2px dashed rgba(25, 35, 44, 0.5);
+            }
+
+
+        }
+        
+    }
+}
+

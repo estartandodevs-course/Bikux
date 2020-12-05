@@ -83,7 +83,7 @@ const Details = getDetails ();
           disabled = {false}
         />
       </div>
-      <Buttons width = {"297px"} height = {"56px"} isPrimary = {true} isOutline = {false} disabled = {isUserNotLogged} children = "Quero essa vaga!" onClick = {IWantThisJob}/>
+      <Buttons fontSize = {"20px"} width = {"297px"} height = {"56px"} isPrimary = {true} isOutline = {false} disabled = {isUserNotLogged} children = "Quero essa vaga!" onClick = {IWantThisJob}/>
       <div className="denounce-container"> 
         <ActionButton
             icon="015-denunciar"

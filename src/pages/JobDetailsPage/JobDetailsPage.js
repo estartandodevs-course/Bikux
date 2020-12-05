@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { JobDetails, TellAFriendModal} from "../../components/index"
+import { JobDetails, TellAFriendModal, DenounceModal} from "../../components/index"
 import jobList from "../../_mocks/jobList";
 import "./JobDetailsPage.scss";
 
@@ -45,6 +45,7 @@ export function JobDetailsPage () {
         <main>
             <JobDetails indexOfCardToBeDetailed =  {params.indexOftoBeSaw} isUserNotLogged = {false} TellAFriend = {TellAFriend} favorite = {favorite} IWantThisJob = {IWantThisJob} denounce = {denounce} />
             {isItAble && <TellAFriendModal  jobTitle = {title} jobIndex = {params.indexOftoBeSaw} close = {closeTellAFriend}/>}
+            <DenounceModal />
         </main>
     );
 }

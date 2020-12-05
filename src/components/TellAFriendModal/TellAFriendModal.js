@@ -41,7 +41,7 @@ function TellAFriendModal (props) {
                 <InputField label = {"E-mail"} type = {"text"} placeholder = {"Digite aqui o e-mail do seu amigo"}  width = {"297px"} height = {"35.9px"} onChange = {Input}/>
 
 
-                <Buttons width = {"297px"} height = {"56px"} isPrimary = {true} isOutline = {false} disabled = {false} children = "Indicar" onClick = {createObjectToBeShared}/>
+                <Buttons width = {"297px"} height = {"56px"} fontSize = {"20px"} isPrimary = {true} isOutline = {false} disabled = {false} children = "Indicar" onClick = {createObjectToBeShared}/>
                 
             </div>
 
