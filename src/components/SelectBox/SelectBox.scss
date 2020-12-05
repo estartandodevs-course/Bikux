@@ -1,36 +1,41 @@
 @import "../../styles/variables.scss", "../../styles/main.scss";
 
-.input-container {
+.select-container {
     display: flex;
     justify-content: center;
    
-    .input-field {
+    .select-box {
         display: flex;
         flex-direction: column;
          margin-top: 11px;
 
-        input{
-            width: 328px;
-            height: 35.93px;
+        select{
+            width: 330px;
+            height: 40px;
             border-radius: 3px;
             border: 1px solid $color-black;
-            outline: none;
             box-sizing: border-box;
-            padding-left: 15px;
-            color: $color-black;
+            padding-left: 10px;
+            color: rgba($color-black, 0.5);
             font-family: 'Kanit Regular';
+            font-size: 14px;
             font-weight: 200;
-        }        
-     
+            appearance:   none;
+        }     
+
+        .select {
+            background:  url('../../assets/images/arrow.png') 95.5% 50% no-repeat;
+          }
+
         label {
             padding-left: 5px;
             font-family: 'Kanit';
             line-height: 150%;
             color: $color-black;
 
-                .required { 
-                    color: red;
-            }
+            .required { 
+                color: red;
+            }   
         }
     }
 }

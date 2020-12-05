@@ -1,36 +1,33 @@
 @import "../../styles/variables.scss", "../../styles/main.scss";
 
-.input-container {
+.textarea-container {
     display: flex;
     justify-content: center;
    
-    .input-field {
+    .textarea {
         display: flex;
         flex-direction: column;
          margin-top: 11px;
 
-        input{
+        textarea{
             width: 328px;
-            height: 35.93px;
+            height: 123px;
             border-radius: 3px;
             border: 1px solid $color-black;
-            outline: none;
             box-sizing: border-box;
             padding-left: 15px;
+            padding-top: 11px;
             color: $color-black;
             font-family: 'Kanit Regular';
+            font-size: 14px;
             font-weight: 200;
-        }        
-     
+        }  
+        
         label {
             padding-left: 5px;
             font-family: 'Kanit';
             line-height: 150%;
             color: $color-black;
-
-                .required { 
-                    color: red;
-            }
         }
     }
 }

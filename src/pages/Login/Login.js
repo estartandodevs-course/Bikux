@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 import "../../components/Buttons/Buttons.scss";
 import "./Login.scss";
 import "../../components/Header/Header.scss";
-import "../../components/Background/Background.scss";
 import Layout from "../../components/layout/Layout";
 
 export const Login = ({ logo }) => {
