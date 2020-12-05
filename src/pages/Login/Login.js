@@ -1,7 +1,7 @@
 import React from "react";
 import Buttons from "../../components/Buttons/Buttons";
 import ActionButton from "../../components/ActionButton/ActionButton";
-import { InputField } from "../../components/inputField/inputField";
+import InputField from "../../components/inputField/inputField";
 import { useHistory } from "react-router-dom";
 import "../../components/Buttons/Buttons.scss";
 import "./Login.scss";
@@ -15,7 +15,7 @@ export const Login = ({ logo }) => {
   return (
     <Layout>
       <div className="container-login">
-        <img className="logo-login" src={logo} alt="logo" />
+        <img src={logo} alt="logo" />
         <div className="input-area">
           <InputField
             label="Usuário"
@@ -30,6 +30,10 @@ export const Login = ({ logo }) => {
         </div>
         <div className="btn-container">
           <Buttons
+            onClick={() => history.push("/")}
+            fontSize={"20px"}
+            width={"301px"}
+            height={"56px"}
             isPrimary={true}
             isOutline={false}
             disabled={false}
@@ -37,6 +41,9 @@ export const Login = ({ logo }) => {
           />
           <div className="space-between" />
           <Buttons
+            fontSize={"20px"}
+            width={"301px"}
+            height={"56px"}
             isPrimary={false}
             isOutline={true}
             disabled={false}

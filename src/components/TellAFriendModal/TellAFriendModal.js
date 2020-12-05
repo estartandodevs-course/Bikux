@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./TellAFriendModal.scss";
-import { Icon } from '../index'
+import { Icon, InputField } from '../index'
 import Buttons from "../Buttons/Buttons";
 
 function TellAFriendModal (props) {
@@ -24,7 +24,6 @@ function TellAFriendModal (props) {
         setEmail (event.target.value);
     }
 
-    console.log (Input);
     
         return (
         <div className = "modal-container">
@@ -39,16 +38,10 @@ function TellAFriendModal (props) {
 
                 <h4 className = "title">Indique esta vaga para um amigo</h4>
 
-                <span className = "email">E-mail</span>
+                <InputField label = {"E-mail"} type = {"text"} placeholder = {"Digite aqui o e-mail do seu amigo"}  width = {"297px"} height = {"35.9px"} onChange = {Input}/>
 
-                <input
-                    className="tell-a-friend-input"
-                    type="text"
-                    onChange = {Input}
-                    placeholder="Digite aqui o e-mail do seu amigo"
-                />
 
-                <Buttons isPrimary = {true} isOutline = {false} disabled = {false} children = "Indicar" onClick = {createObjectToBeShared}/>
+                <Buttons width = {"297px"} height = {"56px"} fontSize = {"20px"} isPrimary = {true} isOutline = {false} disabled = {false} children = "Indicar" onClick = {createObjectToBeShared}/>
                 
             </div>
 

@@ -17,14 +17,11 @@
     background-color: $color-modal-container-background;
     z-index: 2;
 
-    .modal {
+    .denounce-modal {
         @include simple-flex(column, space-around, center);
-
         width: 328px;
-        min-height: 352px;
+        height: 440px;
         background-color: $color-white;
-        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
-        border-radius: 4px;
 
         .close-button-container {
             @include simple-flex(row, center, center);
@@ -46,11 +43,45 @@
         }
 
         .title {
-            width: 264px;
             font-weight: 500;
+            font-size: 25px;
             text-align: center;
-            margin-top: 21px;
-            margin-bottom: 12px;
+            margin-top: 38px;
+            margin-bottom: 33px;
         }
+
+        .buttons-container {
+            min-width: 256px;
+            margin-bottom: 49px;
+            @include simple-flex(row, space-between, center);
+
+            .button-send {
+                margin-right: 24px;
+            }
+        }
+
+        .text-area {
+            width: 264px;
+            height: 127px;
+            background: $color-text-area;
+            border-radius: 3px;
+            border: none;
+            margin-bottom: 24px;
+            resize: none;
+            font-family: 'Kanit Regular';
+            font-weight: 400;
+            font-size: 14px;
+            padding: 8px;
+        
+
+            &:focus {
+                outline: none;
+                border: 2px dashed rgba(25, 35, 44, 0.5);
+            }
+
+
+        }
+        
     }
 }
+

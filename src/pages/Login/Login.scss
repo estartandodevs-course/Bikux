@@ -1,33 +1,27 @@
 @import "../../components/Header/Header.scss";
 
-.container-login {
+@mixin flexbox($direction, $justify, $align) {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.container-login {
+  @include flexbox(column, center, center);
   background: url("../../assets/images/bg-bikux-overlay.png") center/cover
     no-repeat;
   height: 100vh;
   box-sizing: border-box;
 
-  .logo-login {
-    // margin-top: 80px;
-  }
-
   .input-area {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
+    @include flexbox(column, center, left);
     width: 328px;
     margin-top: 50px;
   }
 
   .btn-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flexbox(column, center, center);
     margin: 27px 30px;
 
     .btn {
@@ -39,11 +33,8 @@
     }
 
     &-login {
+      @include flexbox(row, space-between, center);
       width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
       margin-top: 22px;
     }
   }

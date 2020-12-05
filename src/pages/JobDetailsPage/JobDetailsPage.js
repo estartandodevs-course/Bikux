@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { JobDetails, TellAFriendModal } from "../../components/index";
+import {
+  JobDetails,
+  TellAFriendModal,
+  DenounceModal,
+} from "../../components/index";
 import Layout from "../../components/layout/Layout";
 import jobList from "../../_mocks/jobList";
 import "./JobDetailsPage.scss";
@@ -8,6 +12,7 @@ import "./JobDetailsPage.scss";
 export function JobDetailsPage() {
   const params = useParams();
   const [isItAble, setIsItAble] = useState(false);
+  const [isDenouncing, setIsDenouncing] = useState(false);
 
   const Item = jobList.filter(
     (item) => item["id"].toString() === params.indexOftoBeSaw
@@ -48,7 +53,11 @@ export function JobDetailsPage() {
   }
 
   function denounce() {
-    console.log("denunciou de ", title, "cujo index é:", params.indexOftoBeSaw);
+    setIsDenouncing(true);
+  }
+
+  function closeDenounce() {
+    setIsDenouncing(false);
   }
 
   return (
@@ -69,7 +78,18 @@ export function JobDetailsPage() {
             close={closeTellAFriend}
           />
         )}
+        {isDenouncing && (
+          <DenounceModal
+            close={closeDenounce}
+            jobTitle={title}
+            jobIndex={params.indexOftoBeSaw}
+          />
+        )}
       </main>
     </Layout>
   );
+
+  function denounce() {
+    console.log("denunciou de ", title, "cujo index é:", params.indexOftoBeSaw);
+  }
 }
