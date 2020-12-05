@@ -6,6 +6,7 @@ import Icon from './Icon/Icon';
 import TellAFriendModal from './TellAFriendModal/TellAFriendModal';
 import Buttons from './Buttons/Buttons';
 import JobDetails from './JobDetails/JobDetails';
+import InputField from './inputField/inputField';
 
 export {
   ActionButton,
@@ -15,5 +16,6 @@ export {
   JobCard,
   TellAFriendModal,
   Buttons,
-  JobDetails
+  JobDetails,
+  InputField
 }

@@ -1,19 +1,14 @@
 import React from 'react'
-import { useState } from 'react';
-import './InputField.scss'
+import './inputField.scss'
 
-export function InputField(props) {
-    const {label, type, placeholder, required, height, width} = props;                  
+function InputField(props) {
+    const {label, type, placeholder, required, height, width, onChange} = props;                  
     const labelRequired = required === "required" ? '*' : "";
-    const [value, setValue] = useState("");
 
-    function onChange (event) {
-        setValue(event.target.value);
-    }
    
     return (
         <div className="input-container">
-            <div class="input-field">
+            <div className ="input-field">
                 <label>{label}<span className="required">{labelRequired}</span></label>
                 <input 
                 style={{
@@ -29,4 +24,6 @@ export function InputField(props) {
         </div>
     )
 }
+
+export default InputField;
 
