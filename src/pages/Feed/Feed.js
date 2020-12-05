@@ -10,11 +10,6 @@ export const Feed = () => {
   const [jobTitle, setJobTitle] = useState ('');
   const [jobIndex, setJobIndex] = useState ('');
 
-  
-
-
-
-  
   function tellAFriend (toBeIndicated) {
     const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
     setJobTitle (toBeIndicated.title);
