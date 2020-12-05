@@ -5,7 +5,6 @@ function InputField(props) {
     const {label, type, placeholder, required, height, width, onChange} = props;                  
     const labelRequired = required === "required" ? '*' : "";
 
-   
     return (
         <div className="input-container">
             <div className ="input-field">
