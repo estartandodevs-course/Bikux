@@ -7,6 +7,7 @@ import "./JobDetailsPage.scss";
 export function JobDetailsPage () {
     const params = useParams();
     const [isItAble, setIsItAble] = useState (false);
+    const [isDenouncing, setIsDenouncing] = useState (false);
 
     const Item = jobList.filter ((item) => (item["id"]).toString() ===  params.indexOftoBeSaw)
     
@@ -37,7 +38,11 @@ export function JobDetailsPage () {
     }
     
     function denounce() {
-       console.log ("denunciou de ", title, "cujo index é:", params.indexOftoBeSaw);
+       setIsDenouncing (true);
+    }
+
+    function closeDenounce () {
+        setIsDenouncing (false);
     }
 
 
@@ -45,7 +50,7 @@ export function JobDetailsPage () {
         <main>
             <JobDetails indexOfCardToBeDetailed =  {params.indexOftoBeSaw} isUserNotLogged = {false} TellAFriend = {TellAFriend} favorite = {favorite} IWantThisJob = {IWantThisJob} denounce = {denounce} />
             {isItAble && <TellAFriendModal  jobTitle = {title} jobIndex = {params.indexOftoBeSaw} close = {closeTellAFriend}/>}
-            <DenounceModal />
+            {isDenouncing && <DenounceModal close = {closeDenounce} jobTitle = {title} jobIndex = {params.indexOftoBeSaw} />}
         </main>
     );
 }
