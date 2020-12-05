@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./assets/images/logo.svg";
 import { Header } from "./components";
 import "./styles/index.scss";
-import TextArea from "./components/TextArea/TextArea"
+import SelectBox from "./components/SelectBox/SelectBox"
 /*import { Vaga } from "./pages/Vaga/Vaga";
 import { Feed } from "./pages/Feed/Feed";
 import { Search } from "./pages/Search/Search";
@@ -12,13 +12,31 @@ import NoMatch from "./pages/NoMatch/NoMatch"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";*/
 
 export function App() {
+
+  
   return (
-    <TextArea
+    <SelectBox
     label="Detalhes da vaga" 
-    placeholder="Ex.: Procuramos caixa para o período da manhã, 
-    não necessita experiência.
-    Oferecemos salário compatível,VA, VT, AM, AO.
-    Desejável que more próximo."
+    options = {[
+      {
+        label: "Vamos sugerir vagas pensando nisso",
+        value: "",
+      },
+      {
+        label: "Mango",
+        value: "mango",
+      },
+      {
+        label: "Banana",
+        value: "banana",
+      },
+      {
+        label: "Pineapple",
+        value: "pineapple",
+      },
+    ]}
+      
+  
     />
   );
 }
