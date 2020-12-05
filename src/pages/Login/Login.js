@@ -1,12 +1,15 @@
 import React from "react";
 import Buttons from "../../components/Buttons/Buttons";
 import ActionButton from "../../components/ActionButton/ActionButton";
-import { InputField, inputField } from "../../components/inputField/inputField";
+import { InputField } from "../../components/inputField/inputField";
+import { useHistory } from "react-router-dom";
 import "../../components/Buttons/Buttons.scss";
 import "./Login.scss";
 import "../../components/Header/Header.scss";
 
 export const Login = ({ logo, shouldHide }) => {
+  const history = useHistory();
+
   return (
     <div className="container">
       {/* <nav className={shouldHide ? "hideHeader" : ""} /> */}
@@ -40,7 +43,7 @@ export const Login = ({ logo, shouldHide }) => {
         <div className="btn-container-login">
           <ActionButton children="Esqueci minha senha" disabled={false} />
           <ActionButton
-            // onClick={favorite}
+            onClick={() => history.push("/")}
             children="Entrar sem cadastro"
             icon="021-atencao"
             iconSize="16"
