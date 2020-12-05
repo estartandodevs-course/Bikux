@@ -1,17 +1,26 @@
 @import "../../components/Header/Header.scss";
 
-.container {
+.container-login {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url("../../assets/images/bg-bikux-overlay.png") center/cover
+    no-repeat;
+  height: 100vh;
+  box-sizing: border-box;
 
-  .inputArea {
+  .logo-login {
+    // margin-top: 80px;
+  }
+
+  .input-area {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    width: 80%;
+    width: 328px;
+    margin-top: 50px;
   }
 
   .btn-container {
