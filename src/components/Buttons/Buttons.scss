@@ -1,81 +1,81 @@
 @import "../../styles/variables.scss", "../../styles/main.scss";
 
 %Buttons-basic {
-    border-radius: 8px;
-    margin: auto;
-    border: none;
-    border-bottom: solid 4px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
+  border-radius: 8px;
+  margin: auto;
+  border: none;
+  border-bottom: solid 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 
-    &:focus {
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
 %button-children {
-    font-family: "Kanit";
-    font-weight: 500;
+  font-family: "Kanit";
+  font-weight: 500;
 }
 
 .primary {
-    @extend %Buttons-basic;
-    background-color: $color-green-dark;
+  @extend %Buttons-basic;
+  background-color: $color-green-dark;
 
-    .Button-children {
-        color: $color-white;
-        @extend %button-children;
-    }
+  .Button-children {
+    color: $color-white;
+    @extend %button-children;
+  }
 }
 
 .primary-outline {
-    @extend %Buttons-basic;
-    background-color: $color-white;
-    border: 2px solid $color-green-dark;
+  @extend %Buttons-basic;
+  background-color: $color-white;
+  border: 2px solid $color-green-dark;
 
-    .Button-children {
-        color: $color-green-dark;
-        @extend %button-children;
-    }
+  .Button-children {
+    color: $color-green-dark;
+    @extend %button-children;
+  }
 }
 
 .secondary {
-    @extend %Buttons-basic;
-    background-color: $color-orange-dark;
+  @extend %Buttons-basic;
+  background-color: $color-orange-dark;
 
-    .Button-children {
-        color: $color-white;
-        @extend %button-children;
-    }
+  .Button-children {
+    color: $color-white;
+    @extend %button-children;
+  }
 }
 
 .secondary-outline {
-    @extend %Buttons-basic;
-    background-color: $color-white;
-    border: 2px solid $color-orange-dark;
+  @extend %Buttons-basic;
+  background-color: $color-white;
+  border: 2px solid $color-orange-dark;
 
-    .Button-children {
-        color: $color-orange-dark;
-        @extend %button-children;
-    }
+  .Button-children {
+    color: $color-orange-dark;
+    @extend %button-children;
+  }
 }
 
 .disabled {
-    @extend %Buttons-basic;
-    background-color: $color-disabled;
+  @extend %Buttons-basic;
+  background-color: $color-disabled;
 
-    .Button-children {
-        color: $color-white;
-        @extend %button-children;
-    }
+  .Button-children {
+    color: $color-white;
+    @extend %button-children;
+  }
 }
 
 .disabled-outline {
-    @extend %Buttons-basic;
-    background-color: $color-white;
-    border: 2px solid $color-disabled;
+  @extend %Buttons-basic;
+  background-color: $color-white;
+  border: 2px solid $color-disabled;
 
-    .Button-children {
-        color: $color-disabled;
-        @extend %button-children;
-    }
+  .Button-children {
+    color: $color-disabled;
+    @extend %button-children;
+  }
 }

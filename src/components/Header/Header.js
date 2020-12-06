@@ -1,27 +1,38 @@
-import React from 'react'
-import { ActionButton, SearchInput } from '../index'
-import './Header.scss'
+import React from "react";
+import { ActionButton, SearchInput } from "../index";
+import { useHistory } from "react-router-dom";
+import "./Header.scss";
 
-const Header = ({ showExitButton, showBackButton, isSearchPage, logo, onBack, onExit }) => {
+const Header = ({
+  showExitButton,
+  showBackButton,
+  isSearchPage,
+  logo,
+  onBack,
+}) => {
+  const history = useHistory();
   return (
     <header className="Header">
       <div className="action-btn-place">
-        {showBackButton && (
-          <ActionButton icon="020-prev" onClick={onBack} />
-        )}
+        {showBackButton && <ActionButton icon="020-prev" onClick={onBack} />}
       </div>
       <div className="main">
-        {isSearchPage ?
-          (<SearchInput onSearch={() => console.log('ban')}/>) :
-          (<img src={logo} className="logo" alt="logo" />)}
+        {isSearchPage ? (
+          <SearchInput onSearch={() => console.log("ban")} />
+        ) : (
+          <img src={logo} className="logo" alt="logo" />
+        )}
       </div>
       <div className="action-btn-place">
         {showExitButton && (
-          <ActionButton icon="022-exit" onClick={onExit} />
+          <ActionButton
+            icon="022-exit"
+            onClick={() => history.push("/login")}
+          />
         )}
       </div>
     </header>
   );
-}
- 
+};
+
 export default Header;

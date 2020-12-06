@@ -1,0 +1,41 @@
+@import "../../components/Header/Header.scss";
+
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.container-login {
+  @include flexbox(column, center, center);
+  background: url("../../assets/images/bg-bikux-overlay.png") center/cover
+    no-repeat;
+  height: 100vh;
+  box-sizing: border-box;
+
+  .input-area {
+    @include flexbox(column, center, left);
+    width: 328px;
+    margin-top: 50px;
+  }
+
+  .btn-container {
+    @include flexbox(column, center, center);
+    margin: 27px 30px;
+
+    .btn {
+      padding-bottom: 16px;
+    }
+
+    .space-between {
+      padding-bottom: 16px;
+    }
+
+    &-login {
+      @include flexbox(row, space-between, center);
+      width: 100%;
+      margin-top: 22px;
+    }
+  }
+}
