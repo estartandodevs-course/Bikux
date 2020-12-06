@@ -54,7 +54,7 @@ export const Login = ({ logo }) => {
               onClick={() => history.push("/")}
               children="Entrar sem cadastro"
               icon="021-atencao"
-              iconSize="16"
+              iconSize="24"
               disabled={false}
             />
           </div>
