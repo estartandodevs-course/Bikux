@@ -89,7 +89,7 @@ export function JobDetailsPage() {
     </Layout>
   );
 
-  function denounce() {
-    console.log("denunciou de ", title, "cujo index é:", params.indexOftoBeSaw);
-  }
+  // function denounce() {
+  //   console.log("denunciou de ", title, "cujo index é:", params.indexOftoBeSaw);
+  // }
 }

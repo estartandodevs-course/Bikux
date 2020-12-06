@@ -4,13 +4,7 @@ import Header from "../Header/Header";
 import logo from "../../assets/images/logo.svg";
 
 const Layout = (props) => {
-  const {
-    showBackButton,
-    showExitButton,
-    showHeader,
-    showBottomNavBar,
-    children,
-  } = props;
+  const { showHeader, showBottomNavBar, children } = props;
   return (
     <>
       {showHeader && <Header logo={logo} showBackButton showExitButton />}
