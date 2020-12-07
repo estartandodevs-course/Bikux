@@ -1,0 +1,59 @@
+@import "../../styles/variables.scss", "../../styles/main.scss";
+
+@mixin simple-flex($direction: row, $justify: flex-start, $align: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.fundo{
+ @include simple-flex(row, center , center );
+  background-color: $color-modal-container-background;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  .colorbox {
+    @include simple-flex(column,space-around, center);
+    width: 328px;
+    height: 278px;
+    background-color: $color-white;
+    
+
+    
+    .close-button-container {
+      @include simple-flex(row, center, center);
+
+            margin-top: 16px;
+            margin-bottom: 4.1px;
+            margin-right: 16px;
+            align-self: flex-end;
+            background-color: $color-green-dark;
+            width: 24.9px;
+            height: 24.9px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            .close-button {
+                color: $color-black;
+                font-weight: 900;
+          }
+
+    }
+         .title-confirmacao {
+           font-size: 25px;
+           margin: 15px;
+         }
+         .text-confirmacao {
+           text-align: center;
+           width: 264px;
+           margin-bottom: 38px;
+         }
+  }
+
+  
+}

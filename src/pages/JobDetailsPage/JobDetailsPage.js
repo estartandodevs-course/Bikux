@@ -1,21 +1,23 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   JobDetails,
   TellAFriendModal,
   DenounceModal,
-} from "../../components/index";
-import Layout from "../../components/layout/Layout";
-import jobList from "../../_mocks/jobList";
-import "./JobDetailsPage.scss";
+  ConfirmacaoModal,
+} from '../../components/index';
+import Layout from '../../components/layout/Layout';
+import jobList from '../../_mocks/jobList';
+import './JobDetailsPage.scss';
 
 export function JobDetailsPage() {
   const params = useParams();
   const [isItAble, setIsItAble] = useState(false);
   const [isDenouncing, setIsDenouncing] = useState(false);
+  const [confirmationJob, setconfirmationJob] = useState(false);
 
   const Item = jobList.filter(
-    (item) => item["id"].toString() === params.indexOftoBeSaw
+    (item) => item['id'].toString() === params.indexOftoBeSaw,
   );
 
   function getTitle() {
@@ -36,20 +38,24 @@ export function JobDetailsPage() {
 
   function favorite() {
     console.log(
-      "favoritou a vaga de ",
+      'favoritou a vaga de ',
       title,
-      "cujo index é:",
-      params.indexOftoBeSaw
+      'cujo index é:',
+      params.indexOftoBeSaw,
     );
+  }
+  function closeConfirmation() {
+    setconfirmationJob(false);
   }
 
   function IWantThisJob() {
     console.log(
-      "quero a vaga de ",
+      'quero a vaga de ',
       title,
-      "cujo index é:",
-      params.indexOftoBeSaw
+      'cujo index é:',
+      params.indexOftoBeSaw,
     );
+    setconfirmationJob(true);
   }
 
   function denounce() {
@@ -85,11 +91,10 @@ export function JobDetailsPage() {
             jobIndex={params.indexOftoBeSaw}
           />
         )}
+        {confirmationJob && (
+          <ConfirmacaoModal closeConfirmation={closeConfirmation} />
+        )}
       </main>
     </Layout>
   );
-
-  // function denounce() {
-  //   console.log("denunciou de ", title, "cujo index é:", params.indexOftoBeSaw);
-  // }
 }
