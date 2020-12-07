@@ -8,6 +8,7 @@ import { JobDetailsPage } from "./pages/JobDetailsPage/JobDetailsPage";
 import NoMatch from "./pages/NoMatch/NoMatch";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Login } from "./pages/Login/Login";
+import { Cadastro } from "./pages/Cadastro/Cadastro";
 
 export function App() {
   return (
@@ -24,6 +25,9 @@ export function App() {
         </Route>
         <Route path="/login">
           <Login logo={logo} />
+        </Route>
+        <Route path="/cadastro">
+          <Cadastro />
         </Route>
         <Route path="/detalhes/vaga/:indexOftoBeSaw">
           <JobDetailsPage />

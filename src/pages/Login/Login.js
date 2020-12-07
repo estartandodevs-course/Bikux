@@ -40,6 +40,7 @@ export const Login = ({ logo }) => {
           />
           <div className="space-between" />
           <Buttons
+            onClick={() => history.push("/cadastro")}
             fontSize={"20px"}
             width={"301px"}
             height={"56px"}
