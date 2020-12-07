@@ -51,6 +51,8 @@ export const Login = ({ logo }) => {
           <div className="btn-container-login">
             <ActionButton children="Esqueci minha senha" disabled={false} />
             <ActionButton
+              isReverse
+              reverseIcon
               onClick={() => history.push("/")}
               children="Entrar sem cadastro"
               icon="021-atencao"
