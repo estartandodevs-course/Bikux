@@ -3,13 +3,7 @@ import { ActionButton, SearchInput } from "../index";
 import { useHistory } from "react-router-dom";
 import "./Header.scss";
 
-const Header = ({
-  showExitButton,
-  showBackButton,
-  isSearchPage,
-  logo,
-  onBack,
-}) => {
+const Header = ({ showExitButton, showBackButton, isSearchPage, logo }) => {
   const history = useHistory();
   return (
     <header className="Header">
