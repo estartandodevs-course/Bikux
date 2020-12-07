@@ -43,6 +43,7 @@
         }
 
         .title {
+            width: 260px;
             font-weight: 500;
             font-size: 25px;
             text-align: center;
@@ -51,37 +52,15 @@
         }
 
         .buttons-container {
-            min-width: 256px;
-            margin-bottom: 49px;
             @include simple-flex(row, space-between, center);
+            min-width: 256px;
+            margin-top: 24px;
+            margin-bottom: 49px;
 
             .button-send {
                 margin-right: 24px;
             }
-        }
-
-        .text-area {
-            width: 264px;
-            height: 127px;
-            background: $color-text-area;
-            border-radius: 3px;
-            border: none;
-            margin-bottom: 24px;
-            resize: none;
-            font-family: 'Kanit Regular';
-            font-weight: 400;
-            font-size: 14px;
-            padding: 8px;
-        
-
-            &:focus {
-                outline: none;
-                border: 2px dashed rgba(25, 35, 44, 0.5);
-            }
-
-
-        }
-        
+        }        
     }
 }
 

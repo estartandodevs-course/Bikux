@@ -2,7 +2,7 @@ import React from 'react'
 import './TextArea.scss'
 
 function TextArea(props) {
-    const {label, placeholder, height, width, onChange} = props;                  
+    const {label, placeholder, height, width, onChange, backgroundColor, borderNone} = props;                  
 
     return (
         <div className="textarea-container">
@@ -11,7 +11,9 @@ function TextArea(props) {
                 <textarea 
                 style={{
                     height: height,
-                    width: width
+                    width: width,
+                    backgroundColor: backgroundColor,
+                    border: borderNone
                 }} 
                 onChange={onChange}
                 placeholder={placeholder}>
