@@ -9,6 +9,7 @@ import JobDetails from './JobDetails/JobDetails';
 import InputField from './inputField/inputField';
 import DenounceModal from './DenounceModal/DenounceModal';
 import ConfirmacaoModal from './ConfirmacaoModal/ConfirmacaoModal';
+import TextArea from './TextArea/TextArea';
 
 export {
   ActionButton,
@@ -22,4 +23,5 @@ export {
   InputField,
   DenounceModal,
   ConfirmacaoModal,
+  TextArea
 };
