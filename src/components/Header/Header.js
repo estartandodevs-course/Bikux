@@ -14,7 +14,9 @@ const Header = ({
   return (
     <header className="Header">
       <div className="action-btn-place">
-        {showBackButton && <ActionButton icon="020-prev" onClick={onBack} />}
+        {showBackButton && (
+          <ActionButton icon="020-prev" onClick={() => history.goBack()} />
+        )}
       </div>
       <div className="main">
         {isSearchPage ? (
