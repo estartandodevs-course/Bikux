@@ -40,6 +40,7 @@ export const Login = ({ logo }) => {
           />
           <div className="space-between" />
           <Buttons
+            onClick={() => history.push("/cadastro")}
             fontSize={"20px"}
             width={"301px"}
             height={"56px"}
@@ -51,6 +52,8 @@ export const Login = ({ logo }) => {
           <div className="btn-container-login">
             <ActionButton children="Esqueci minha senha" disabled={false} />
             <ActionButton
+              isReverse
+              reverseIcon
               onClick={() => history.push("/")}
               children="Entrar sem cadastro"
               icon="021-atencao"
