@@ -24,28 +24,30 @@ const SemCadastroModal = (props) => {
           O usuário cadastrado pode se candidatar, favoritar e indicar as vagas.
         </p>
 
-        <Buttons
-          className="btn-cadastrar"
-          width={"297px"}
-          height={"56px"}
-          fontSize={"20px"}
-          isPrimary={true}
-          isOutline={false}
-          disabled={false}
-          children="Cadastrar"
-          onClick={() => history.push("/cadastro")}
-        />
-
-        <Buttons
-          width={"297px"}
-          height={"56px"}
-          fontSize={"20px"}
-          isPrimary={true}
-          isOutline={true}
-          disabled={false}
-          children="Acessar sem cadastro"
-          onClick={() => history.push("/")}
-        />
+        <div className="btns">
+          <Buttons
+            width={"297px"}
+            height={"56px"}
+            fontSize={"20px"}
+            isPrimary={true}
+            isOutline={false}
+            disabled={false}
+            onClick={() => history.push("/cadastro")}
+          >
+            Cadastrar <span className="text-cadastrar">(é rapidinho!)</span>
+          </Buttons>
+          <div className="btn-cadastrar"></div>
+          <Buttons
+            width={"297px"}
+            height={"56px"}
+            fontSize={"20px"}
+            isPrimary={true}
+            isOutline={true}
+            disabled={false}
+            children="Acessar sem cadastro"
+            onClick={() => history.push("/")}
+          />
+        </div>
       </div>
     </div>
   );

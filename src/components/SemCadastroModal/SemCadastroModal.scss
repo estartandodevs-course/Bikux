@@ -64,8 +64,17 @@
       text-align: center;
     }
 
+    .btns {
+      @include simple-flex(column, space-around, space-around);
+      margin: 16px 22px 48px;
+    }
+
     .btn-cadastrar {
-      margin-bottom: -50px;
+      margin-bottom: 8px;
+    }
+
+    .text-cadastrar {
+      font-size: 13px;
     }
   }
 }
