@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/layout/Layout";
 
-export const Cadastro = () => {
+ const Cadastro = () => {
   return (
     <Layout showHeader>
       <div>
@@ -10,3 +10,6 @@ export const Cadastro = () => {
     </Layout>
   );
 };
+
+
+export default Cadastro;

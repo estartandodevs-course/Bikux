@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/layout/Layout";
 
-export const Search = () => {
+const Search = () => {
   return (
     <Layout showHeader showBottomNavBar>
       <div>
@@ -10,3 +10,5 @@ export const Search = () => {
     </Layout>
   );
 };
+
+export default Search;
