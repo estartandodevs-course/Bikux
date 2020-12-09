@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/layout/Layout";
 
-export const Vaga = () => {
+const Vaga = () => {
   return (
     <Layout showHeader showBottomNavBar>
       <div>
@@ -10,3 +10,6 @@ export const Vaga = () => {
     </Layout>
   );
 };
+
+
+export default Vaga;

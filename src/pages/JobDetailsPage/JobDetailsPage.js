@@ -10,7 +10,7 @@ import Layout from '../../components/layout/Layout';
 import jobList from '../../_mocks/jobList';
 import './JobDetailsPage.scss';
 
-export function JobDetailsPage() {
+function JobDetailsPage() {
   const params = useParams();
   const [isItAble, setIsItAble] = useState(false);
   const [isDenouncing, setIsDenouncing] = useState(false);
@@ -98,3 +98,6 @@ export function JobDetailsPage() {
     </Layout>
   );
 }
+
+
+export default JobDetailsPage;

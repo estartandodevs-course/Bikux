@@ -9,7 +9,7 @@ import "../../components/Header/Header.scss";
 import Layout from "../../components/layout/Layout";
 import { SemCadastroModal } from "../../components";
 
-export const Login = (props) => {
+const Login = (props) => {
   const history = useHistory();
   const { logo } = props;
   const [isItAble, setIsItAble] = useState(false);
@@ -76,3 +76,5 @@ export const Login = (props) => {
     </Layout>
   );
 };
+
+export default Login;
