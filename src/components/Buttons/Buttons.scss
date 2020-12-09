@@ -1,6 +1,9 @@
 @import "../../styles/variables.scss", "../../styles/main.scss";
 
 %Buttons-basic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 8px;
   margin: auto;
   border: none;
@@ -15,6 +18,13 @@
 %button-children {
   font-family: "Kanit";
   font-weight: 500;
+}
+
+.button-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
 }
 
 .primary {
