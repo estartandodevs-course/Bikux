@@ -49,6 +49,7 @@ const Feed = () => {
           <TellAFriendModal
             jobTitle={jobTitle}
             jobIndex={jobIndex}
+            isdetailsPage = {false}
             close={closeTellAFriend}
           />
         )}

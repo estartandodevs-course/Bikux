@@ -5,7 +5,7 @@ import Buttons from "../Buttons/Buttons";
 
 function TellAFriendModal (props) {
 
-    const {close, jobTitle, jobIndex} = props;
+    const {close, jobTitle, jobIndex, isdetailsPage} = props;
 
     const [email, setEmail] = useState("");
 
@@ -17,6 +17,22 @@ function TellAFriendModal (props) {
         };
 
         console.log (JobAndFriendData);
+        setTimeout (close, 200)
+    }
+
+    function shareWithWhatsApp () {
+
+        const actualUrl = window.location.href.toString();
+
+        if (isdetailsPage) {
+
+            window.open(`https://api.whatsapp.com/send?text=${actualUrl}`);
+
+        } else {
+
+            window.open(`https://api.whatsapp.com/send?text=${actualUrl}detalhes/vaga/${jobIndex}`);
+        }
+        
         setTimeout (close, 200)
     }
 
@@ -45,7 +61,7 @@ function TellAFriendModal (props) {
 
                     <span className = "or"> ou </span>
 
-                    <Buttons  img = "logos_whatsapp" width = {"198px"} height = {"56px"} fontSize = {"20px"} isPrimary = {true} isOutline = {false} disabled = {false} children = "Via WhatsApp" onClick = {createObjectToBeShared}/>
+                    <Buttons  img = "logos_whatsapp" width = {"198px"} height = {"56px"} fontSize = {"20px"} isPrimary = {true} isOutline = {false} disabled = {false} children = "Via WhatsApp" onClick = {shareWithWhatsApp}/>
 
                 </div>
                 
