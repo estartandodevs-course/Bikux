@@ -35,7 +35,7 @@ function DenounceModal (props) {
         <div className = "modal-container">
             <div className = "denounce-modal">
             <div className = "close-button-container" onClick = {close}>
-                    <span className = "close-button">X</span>
+                    <span className = "close-button">✕</span>
             </div>
 
             <Icon name= "015-denunciar" size="64" />
