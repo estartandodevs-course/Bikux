@@ -9,7 +9,7 @@ function ConfirmacaoModal(props) {
     <div className="fundo">
       <section className="colorbox">
         <div className="close-button-container" onClick={closeConfirmation}>
-          <span className="close-button">X</span>
+          <span className="close-button">✕</span>
         </div>
         <Icon name="011-rh" size="64" />
         <h5 className="title-confirmacao">Parabéns!</h5>
