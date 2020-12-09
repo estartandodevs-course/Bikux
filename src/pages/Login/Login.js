@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Buttons from "../../components/Buttons/Buttons";
 import ActionButton from "../../components/ActionButton/ActionButton";
 import InputField from "../../components/inputField/inputField";
@@ -7,9 +7,18 @@ import "../../components/Buttons/Buttons.scss";
 import "./Login.scss";
 import "../../components/Header/Header.scss";
 import Layout from "../../components/layout/Layout";
+import { SemCadastroModal } from "../../components";
 
-export const Login = ({ logo }) => {
+export const Login = (props) => {
   const history = useHistory();
+  const { logo } = props;
+  const [isItAble, setIsItAble] = useState(false);
+  function semCadastro() {
+    setIsItAble(true);
+  }
+  function closeSemCadastro() {
+    setIsItAble(false);
+  }
 
   return (
     <Layout>
@@ -40,6 +49,7 @@ export const Login = ({ logo }) => {
           />
           <div className="space-between" />
           <Buttons
+            onClick={() => history.push("/cadastro")}
             fontSize={"20px"}
             width={"301px"}
             height={"56px"}
@@ -51,12 +61,15 @@ export const Login = ({ logo }) => {
           <div className="btn-container-login">
             <ActionButton children="Esqueci minha senha" disabled={false} />
             <ActionButton
-              onClick={() => history.push("/")}
+              isReverse
+              reverseIcon
+              onClick={semCadastro}
               children="Entrar sem cadastro"
               icon="021-atencao"
               iconSize="24"
               disabled={false}
             />
+            {isItAble && <SemCadastroModal close={closeSemCadastro} />}
           </div>
         </div>
       </div>
