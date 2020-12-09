@@ -25,8 +25,9 @@ const Cadastro = () => {
           required
         />
         <SelectField
+          onChange={() => {}}
+          value=""
           label="Selecione suas áreas de interesse"
-          children="Vamos sugerir vagas pensando nisso"
           required
         ></SelectField>
         <div className="icon-container">
