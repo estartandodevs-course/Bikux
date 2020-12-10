@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { JobCard, TellAFriendModal } from '../../components/index';
 import Layout from '../../components/layout/Layout';
-import jobList from '../../_mocks/jobList';
+import jobListMock from '../../_mocks/jobList';
 import './Feed.scss';
 
 export const Feed = () => {
   const [isItAble, setIsItAble] = useState(false);
   const [jobTitle, setJobTitle] = useState('');
   const [jobIndex, setJobIndex] = useState('');
+  const [jobList, setJobList] = useState(jobListMock);
 
   function tellAFriend(toBeIndicated) {
     const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
@@ -22,6 +23,12 @@ export const Feed = () => {
 
   function Favorite(toBeFavorite) {
     const indexOftoBeFavorite = jobList.indexOf(toBeFavorite);
+    const newJobList = [...jobList];
+    newJobList[indexOftoBeFavorite] = {
+      ...jobList[indexOftoBeFavorite],
+      favorite: !jobList[indexOftoBeFavorite].favorite,
+    };
+    setJobList(newJobList);
     console.log(
       'favoritou a vaga de ',
       toBeFavorite.title,
@@ -43,6 +50,7 @@ export const Feed = () => {
             actionTellAFriend={tellAFriend.bind(this, info)}
             actionFavorite={Favorite.bind(this, info)}
             indexOftoBeSaw={info.id}
+            favorite={info.favorite}
           />
         ))}
         {isItAble && (
