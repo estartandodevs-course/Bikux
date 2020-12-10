@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./DenounceModal.scss";
-import { Icon, Buttons } from '../index'
+import { Icon, Buttons, TextArea } from '../index'
 
 
 function DenounceModal (props) {
@@ -35,14 +35,14 @@ function DenounceModal (props) {
         <div className = "modal-container">
             <div className = "denounce-modal">
             <div className = "close-button-container" onClick = {close}>
-                    <span className = "close-button">X</span>
+                    <span className = "close-button">✕</span>
             </div>
 
             <Icon name= "015-denunciar" size="64" />
 
             <h5 className = "title">Denunciar vaga</h5>
 
-            <textarea className = "text-area" onChange = {textData} placeholder = "Descreva aqui o problema com essa vaga" ></textarea>
+           <TextArea placeholder = "Descreva aqui o problema com essa vaga" borderNone = "none" backgroundColor = " #19232c33" width = "264px" height = "127px" onChange = {textData}/>
     
             <div className = "buttons-container">
 

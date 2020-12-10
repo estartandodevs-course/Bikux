@@ -4,7 +4,7 @@ import Layout from '../../components/layout/Layout';
 import jobListMock from '../../_mocks/jobList';
 import './Feed.scss';
 
-export const Feed = () => {
+const Feed = () => {
   const [isItAble, setIsItAble] = useState(false);
   const [jobTitle, setJobTitle] = useState('');
   const [jobIndex, setJobIndex] = useState('');
@@ -64,3 +64,5 @@ export const Feed = () => {
     </Layout>
   );
 };
+
+export default Feed;

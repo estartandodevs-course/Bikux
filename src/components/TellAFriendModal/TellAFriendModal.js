@@ -31,7 +31,7 @@ function TellAFriendModal (props) {
             <div className = "modal">
 
                 <div className = "close-button-container" onClick = {close}>
-                    <span className = "close-button">X</span>
+                    <span className = "close-button">✕</span>
                 </div>
 
                 <Icon name= "002-indique" size="64" />
