@@ -29,7 +29,7 @@ const Cadastro = () => {
           value=""
           label="Selecione suas áreas de interesse"
           required
-        ></SelectField>
+        />
         <div className="icon-container">
           <div className="icon-btn">
             <ActionButton
@@ -51,7 +51,7 @@ const Cadastro = () => {
               icon="003-avatar"
               iconSize="39.75"
               disabled={false}
-            ></ActionButton>
+            />
           </div>
         </div>
 
