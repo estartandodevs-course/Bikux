@@ -4,6 +4,7 @@ import Layout from "../../components/layout/Layout";
 import jobList from "../../_mocks/jobList";
 import JobCard from "../../components/JobCard/JobCard";
 import "./Search.scss";
+import Icon from "../../components/Icon/Icon";
 
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -16,6 +17,10 @@ const Search = () => {
     console.log(search);
   };
 
+  const numVagas = searchJob.length;
+  const calcNumVagas =
+    numVagas > 0 ? numVagas + " vagas encontradas" : "nenhuma vaga encontrada";
+
   return (
     <Layout showBottomNavBar>
       <Header
@@ -25,7 +30,15 @@ const Search = () => {
         onChangeSearch={setSearch}
         onSearch={onSearch}
       />
+
       <div className="container">
+        <div className="container-num-vagas">
+          <Icon name="010-atencao" />
+          <h4 id="heading" className="heading">
+            {calcNumVagas}
+          </h4>
+        </div>
+
         {searchJob.map((job, index) => (
           <JobCard
             key={index}
