@@ -10,9 +10,10 @@ function JobDetails(props) {
     indexOfCardToBeDetailed,
     isUserNotLogged,
     TellAFriend,
-    favorite,
+    actionFavorite,
     IWantThisJob,
     denounce,
+    favorite,
   } = props;
 
   function getDataFromCardToBeDetailed(indexOfCardToBeDetailed) {
@@ -79,13 +80,12 @@ function JobDetails(props) {
           children="Indicar para amigo"
           disabled={false}
         />
-        <ActionButton
-          icon="014-favoritar"
-          iconSize="16"
-          onClick={favorite}
-          children="Favoritar"
-          disabled={false}
-        />
+          <ActionButton
+            icon={favorite ? '024-favoritado' : '014-favoritar'}
+            iconSize="16"
+            onClick={actionFavorite}
+            disabled={false}
+          />
       </div>
       <Buttons
         fontSize={'20px'}
