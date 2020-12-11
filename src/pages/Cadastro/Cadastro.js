@@ -1,17 +1,19 @@
 import React from "react";
-import Layout from "../../components/layout/Layout";
 import InputField from "../../components/inputField/inputField";
 import Buttons from "../../components/Buttons/Buttons";
 import { useHistory } from "react-router-dom";
 import "./Cadastro.scss";
 import ActionButton from "../../components/ActionButton/ActionButton";
 import SelectField from "../../components/SelectField/SelectField";
+import { Header } from "../../components";
+import logo from "../../assets/images/logo.svg";
 
 const Cadastro = () => {
   const history = useHistory();
   return (
-    <Layout showHeader>
-      <div>
+    <>
+      <Header showBackButton logo={logo} />
+      <div className="input-container">
         <InputField
           label="E-mail"
           type="email"
@@ -73,20 +75,21 @@ const Cadastro = () => {
           placeholder="Confirme sua senha"
           required
         />
-        <div className="btn-container">
-          <Buttons
-            onClick={() => history.push("/")}
-            fontSize={"20px"}
-            width={"301px"}
-            height={"56px"}
-            isPrimary={true}
-            isOutline={false}
-            disabled={false}
-            children="Finalizar cadastro"
-          />
-        </div>
+        <span className="obrigatorio">* Obrigatório</span>
       </div>
-    </Layout>
+      <div className="btn-container">
+        <Buttons
+          onClick={() => history.push("/")}
+          fontSize={"20px"}
+          width={"301px"}
+          height={"56px"}
+          isPrimary={true}
+          isOutline={false}
+          disabled={false}
+          children="Finalizar cadastro"
+        />
+      </div>
+    </>
   );
 };
 

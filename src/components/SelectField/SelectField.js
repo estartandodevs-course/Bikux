@@ -19,7 +19,7 @@ function SelectField(props) {
           <span className="required">{labelRequired}</span>
         </label>
         <select value={value} onChange={onChange} id="select">
-          <option value="" disabled>
+          <option className="placeholder" value="" disabled>
             Vamos sugerir vagas pensando nisso
           </option>
           {options.map((option) => (

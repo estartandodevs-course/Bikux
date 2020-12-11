@@ -12,12 +12,14 @@
     select {
       width: 328px;
       height: 35.93px;
+      color: $color-input-select;
+      // opacity: 0.65;
       border-radius: 3px;
       border: 1px solid $color-black;
       outline: none;
       box-sizing: border-box;
-      padding-left: 15px;
-      color: $color-black;
+      padding-left: 10px;
+
       font-family: "Kanit Regular";
       font-weight: 200;
     }
@@ -33,4 +35,8 @@
       }
     }
   }
+}
+
+.placeholder {
+  color: red;
 }

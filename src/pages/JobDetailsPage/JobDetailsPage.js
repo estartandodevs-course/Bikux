@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   JobDetails,
   TellAFriendModal,
   DenounceModal,
   ConfirmacaoModal,
-} from '../../components/index';
-import Layout from '../../components/layout/Layout';
-import jobList from '../../_mocks/jobList';
-import './JobDetailsPage.scss';
+} from "../../components/index";
+import Layout from "../../components/layout/Layout";
+import jobList from "../../_mocks/jobList";
+import "./JobDetailsPage.scss";
 
 function JobDetailsPage() {
   const params = useParams();
@@ -17,7 +17,7 @@ function JobDetailsPage() {
   const [confirmationJob, setconfirmationJob] = useState(false);
 
   const Item = jobList.filter(
-    (item) => item['id'].toString() === params.indexOftoBeSaw,
+    (item) => item["id"].toString() === params.indexOftoBeSaw
   );
 
   function getTitle() {
@@ -38,10 +38,10 @@ function JobDetailsPage() {
 
   function favorite() {
     console.log(
-      'favoritou a vaga de ',
+      "favoritou a vaga de ",
       title,
-      'cujo index é:',
-      params.indexOftoBeSaw,
+      "cujo index é:",
+      params.indexOftoBeSaw
     );
   }
   function closeConfirmation() {
@@ -50,11 +50,12 @@ function JobDetailsPage() {
 
   function IWantThisJob() {
     console.log(
-      'quero a vaga de ',
+      "quero a vaga de ",
       title,
-      'cujo index é:',
-      params.indexOftoBeSaw,
+      "cujo index é:",
+      params.indexOftoBeSaw
     );
+
     setconfirmationJob(true);
   }
 
@@ -98,6 +99,5 @@ function JobDetailsPage() {
     </Layout>
   );
 }
-
 
 export default JobDetailsPage;
