@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Header } from "../../components";
-import Layout from "../../components/layout/Layout";
-import jobList from "../../_mocks/jobList";
-import JobCard from "../../components/JobCard/JobCard";
-import "./Search.scss";
-import Icon from "../../components/Icon/Icon";
+import React, { useState } from 'react';
+import { Header } from '../../components';
+import Layout from '../../components/layout/Layout';
+import jobList from '../../_mocks/jobList';
+import JobCard from '../../components/JobCard/JobCard';
+import './Search.scss';
+import Icon from '../../components/Icon/Icon';
 
 const Search = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const searchJob = jobList.filter((job) => {
     return job.title.toLowerCase().includes(search.toLowerCase());
