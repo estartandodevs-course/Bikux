@@ -1,57 +1,62 @@
-import React from "react";
-import Badges from "../Badges/Badges";
-import { ActionButton} from "../";
-import "./JobDetails.scss";
-import jobList from "../../_mocks/jobList";
-import Buttons from "../Buttons/Buttons";
+import React from 'react';
+import Badges from '../Badges/Badges';
+import { ActionButton } from '../';
+import './JobDetails.scss';
+import jobList from '../../_mocks/jobList';
+import Buttons from '../Buttons/Buttons';
 
 function JobDetails(props) {
-  const {indexOfCardToBeDetailed, isUserNotLogged, TellAFriend, favorite, IWantThisJob, denounce} = props;
+  const {
+    indexOfCardToBeDetailed,
+    isUserNotLogged,
+    TellAFriend,
+    actionFavorite,
+    IWantThisJob,
+    denounce,
+    favorite,
+  } = props;
 
-
-  function getDataFromCardToBeDetailed (indexOfCardToBeDetailed) {
-     return jobList.filter ((item) => (item["id"]).toString() ===  indexOfCardToBeDetailed)
+  function getDataFromCardToBeDetailed(indexOfCardToBeDetailed) {
+    return jobList.filter(
+      (item) => item['id'].toString() === indexOfCardToBeDetailed,
+    );
   }
 
+  const itemToBeDatailed = getDataFromCardToBeDetailed(indexOfCardToBeDetailed);
 
-  const itemToBeDatailed = getDataFromCardToBeDetailed (indexOfCardToBeDetailed);
+  function getImage() {
+    return itemToBeDatailed.map((item) => item.jobImage);
+  }
 
+  const image = getImage();
 
-function getImage () {
-    return itemToBeDatailed.map ((item) => item.jobImage)
-}
-
-const image = getImage ();
-
-function getTitle () {
-    const title = itemToBeDatailed.map ((item) => item.title);
+  function getTitle() {
+    const title = itemToBeDatailed.map((item) => item.title);
     const TitleReady = title.pop();
     return TitleReady;
-}
+  }
 
-const title = getTitle ();
+  const title = getTitle();
 
-function getBadgesList () {
-    const ListOfBadgesList = itemToBeDatailed.map ((item) => item.badgesList)
+  function getBadgesList() {
+    const ListOfBadgesList = itemToBeDatailed.map((item) => item.badgesList);
     const BadgesList = ListOfBadgesList.pop();
-    return  BadgesList;
-}
+    return BadgesList;
+  }
 
-const BadgesList = getBadgesList ();
+  const BadgesList = getBadgesList();
 
+  function getDescription() {
+    return itemToBeDatailed.map((item) => item.jobDescription);
+  }
 
-function getDescription () {
-    return itemToBeDatailed.map ((item) => item.jobDescription)
-}
+  const description = getDescription();
 
-const description = getDescription ();
+  function getDetails() {
+    return itemToBeDatailed.map((item) => item.jobDetails);
+  }
 
-function getDetails () {
-    return itemToBeDatailed.map ((item) => item.jobDetails)
-}
-
-const Details = getDetails ();
-
+  const Details = getDetails();
 
   return (
     <div className="job-card-container">
@@ -65,33 +70,41 @@ const Details = getDetails ();
         </div>
       </div>
       <h6 className="job-description-title">{description}</h6>
-        <p className = "details">{Details}</p>
-        <div className="buttons-container-details">
+      <p className="details">{Details}</p>
+      <div className="buttons-container-details">
         <ActionButton
           className="button"
           icon="002-indique"
           iconSize="16"
           onClick={TellAFriend}
-          children = "Indicar para amigo"
-          disabled = {false}
+          children="Indicar para amigo"
+          disabled={false}
         />
-        <ActionButton
-          icon="014-favoritar"
-          iconSize="16"
-          onClick={favorite}
-          children = "Favoritar"
-          disabled = {false}
-        />
-      </div>
-      <Buttons fontSize = {"20px"} width = {"297px"} height = {"56px"} isPrimary = {true} isOutline = {false} disabled = {isUserNotLogged} children = "Quero essa vaga!" onClick = {IWantThisJob}/>
-      <div className="denounce-container"> 
-        <ActionButton
-            icon="015-denunciar"
+          <ActionButton
+            icon={favorite ? '024-favoritado' : '014-favoritar'}
             iconSize="16"
-            onClick={denounce}
-            children = "Denunciar esta vaga"
-            disabled = {false}
-            />
+            onClick={actionFavorite}
+            disabled={false}
+          />
+      </div>
+      <Buttons
+        fontSize={'20px'}
+        width={'297px'}
+        height={'56px'}
+        isPrimary={true}
+        isOutline={false}
+        disabled={isUserNotLogged}
+        children="Quero essa vaga!"
+        onClick={IWantThisJob}
+      />
+      <div className="denounce-container">
+        <ActionButton
+          icon="015-denunciar"
+          iconSize="16"
+          onClick={denounce}
+          children="Denunciar esta vaga"
+          disabled={false}
+        />
       </div>
     </div>
   );
