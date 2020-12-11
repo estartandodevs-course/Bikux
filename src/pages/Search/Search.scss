@@ -16,12 +16,16 @@
   &-num-vagas {
     @include flexbox(row, flex-start, center);
     width: 328px;
-    margin: 14px 0 4px;
+    margin: 16px 0 8px;
     border-bottom: 3px solid $color-orange-dark;
 
     .heading {
       padding-left: 8.47px;
       font-weight: 500;
+
+      .number {
+        color: orange;
+      }
     }
   }
 }

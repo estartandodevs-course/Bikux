@@ -19,7 +19,13 @@ const Search = () => {
 
   const numVagas = searchJob.length;
   const calcNumVagas =
-    numVagas > 0 ? numVagas + " vagas encontradas" : "nenhuma vaga encontrada";
+    numVagas > 0 ? (
+      <h4 className="heading">
+        <span className="number">{numVagas}</span> vagas encontradas
+      </h4>
+    ) : (
+      <h4 className="heading">nenhuma vaga encontrada</h4>
+    );
 
   return (
     <Layout showBottomNavBar>
@@ -34,9 +40,7 @@ const Search = () => {
       <div className="container">
         <div className="container-num-vagas">
           <Icon name="010-atencao" />
-          <h4 id="heading" className="heading">
-            {calcNumVagas}
-          </h4>
+          {calcNumVagas}
         </div>
 
         {searchJob.map((job, index) => (
