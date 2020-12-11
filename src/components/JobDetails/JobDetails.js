@@ -11,9 +11,10 @@ function JobDetails(props) {
     indexOfCardToBeDetailed,
     isUserNotLogged,
     TellAFriend,
-    favorite,
+    actionFavorite,
     IWantThisJob,
     denounce,
+    favorite,
   } = props;
 
   function getDataFromCardToBeDetailed(indexOfCardToBeDetailed) {
@@ -132,10 +133,40 @@ const denunciarButton = isLoggedIn ? (
           iconSize="16"
           onClick={TellAFriend}
           children="Indicar para amigo"
+<<<<<<< HEAD
           disabled={false}/>
 
         {favoritarButton}
 
+=======
+          disabled={false}
+        />
+        <ActionButton
+          icon={favorite ? '024-favoritado' : '014-favoritar'}
+          iconSize="16"
+          onClick={actionFavorite}
+          disabled={false}
+        />
+      </div>
+      <Buttons
+        fontSize={'20px'}
+        width={'297px'}
+        height={'56px'}
+        isPrimary={true}
+        isOutline={false}
+        disabled={isUserNotLogged}
+        children="Quero essa vaga!"
+        onClick={IWantThisJob}
+      />
+      <div className="denounce-container">
+        <ActionButton
+          icon="015-denunciar"
+          iconSize="16"
+          onClick={denounce}
+          children="Denunciar esta vaga"
+          disabled={false}
+        />
+>>>>>>> ae9a54961e16e8cad92b8a2127a6e3e1afdbaea9
       </div>
 
       {vagaButton}
