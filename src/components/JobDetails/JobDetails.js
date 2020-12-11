@@ -1,12 +1,13 @@
 import React from "react";
 import Badges from "../Badges/Badges";
 import { ActionButton} from "../";
+import { useHistory } from "react-router-dom";
 import "./JobDetails.scss";
 import jobList from "../../_mocks/jobList";
 import Buttons from "../Buttons/Buttons";
 
 function JobDetails(props) {
-  const {indexOfCardToBeDetailed, isUserNotLogged, TellAFriend, favorite, IWantThisJob, denounce} = props;
+  const {indexOfCardToBeDetailed, TellAFriend, favorite, IWantThisJob, denounce} = props;
 
 
   function getDataFromCardToBeDetailed (indexOfCardToBeDetailed) {
@@ -52,7 +53,59 @@ function getDetails () {
 
 const Details = getDetails ();
 
+//checa se o usuário está autenticado
 
+const history = useHistory();
+
+const isLoggedIn = false;
+
+const loginButton = isLoggedIn ? (
+    <Buttons 
+    fontSize = {"20px"} 
+    width = {"297px"} 
+    height = {"56px"} 
+    isPrimary = {true} 
+    isOutline = {false} 
+    children = "Quero essa vaga!" 
+    onClick = {IWantThisJob}/>) : 
+  (<Buttons fontSize = {"20px"} 
+    width = {"297px"} 
+    height = {"56px"} 
+    isPrimary = {true} 
+    isOutline = {false} 
+    backgroundColor = " #c5c6c7"
+    children = "Necessário realizar login" 
+    onClick = {() => history.push("/login")}/>);
+
+const favoritarButton = isLoggedIn ? (
+<ActionButton
+    icon="014-favoritar"
+    iconSize="16"
+    onClick={favorite}
+    children = "Favoritar"
+    disabled = {false}/>) : 
+    ("");
+
+const denunciarButton = isLoggedIn ? (
+  <div className="denounce-container"> 
+  <ActionButton
+      icon="015-denunciar"
+      iconSize="16"
+      onClick={denounce}
+      children = "Denunciar esta vaga"
+      disabled = {false}
+      />
+  </div>) : 
+  (<div className="denounce-container"> 
+  <ActionButton
+      icon="022-exit"
+      iconSize="16"
+      onClick = {() => history.push("/login")}
+      children = "Entrar"
+      disabled = {false}
+      />
+  </div>);
+  
   return (
     <div className="job-card-container">
       <div className="card-header">
@@ -75,24 +128,10 @@ const Details = getDetails ();
           children = "Indicar para amigo"
           disabled = {false}
         />
-        <ActionButton
-          icon="014-favoritar"
-          iconSize="16"
-          onClick={favorite}
-          children = "Favoritar"
-          disabled = {false}
-        />
+        {favoritarButton}
       </div>
-      <Buttons fontSize = {"20px"} width = {"297px"} height = {"56px"} isPrimary = {true} isOutline = {false} disabled = {isUserNotLogged} children = "Quero essa vaga!" onClick = {IWantThisJob}/>
-      <div className="denounce-container"> 
-        <ActionButton
-            icon="015-denunciar"
-            iconSize="16"
-            onClick={denounce}
-            children = "Denunciar esta vaga"
-            disabled = {false}
-            />
-      </div>
+      {loginButton}
+     {denunciarButton}
     </div>
   );
 }

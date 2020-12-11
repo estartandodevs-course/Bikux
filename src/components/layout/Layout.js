@@ -5,11 +5,33 @@ import logo from "../../assets/images/logo.svg";
 
 const Layout = (props) => {
   const { showHeader, showBottomNavBar, children } = props;
-  return (
+
+  /* const isLoggedIn = firebase.auth().onAuthStateChanged(function(user){
+    if (user) {
+      return true
+    } else {
+      return false
+    }
+  })*/ 
+
+
+  const isLoggedIn = false;
+
+  const headerKind = isLoggedIn ? (
     <>
       {showHeader && <Header logo={logo} showBackButton showExitButton />}
-      {children}
-      {showBottomNavBar && <BottomNavBar />}
+    </>
+  ) : (
+    <>
+    {showHeader && <Header logo={logo} showBackButton />}
+    </>
+  );
+
+  return (
+    <>
+    {headerKind}
+    {children}
+    {showBottomNavBar && <BottomNavBar />}
     </>
   );
 };
