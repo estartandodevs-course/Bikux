@@ -11,6 +11,7 @@ import DenounceModal from "./DenounceModal/DenounceModal";
 import ConfirmacaoModal from "./ConfirmacaoModal/ConfirmacaoModal";
 import TextArea from "./TextArea/TextArea";
 import SemCadastroModal from "./SemCadastroModal/SemCadastroModal";
+import SelectField from "./SelectField/SelectField";
 
 export {
   ActionButton,
@@ -26,4 +27,5 @@ export {
   ConfirmacaoModal,
   TextArea,
   SemCadastroModal,
+  SelectField,
 };

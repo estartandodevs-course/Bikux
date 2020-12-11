@@ -1,0 +1,31 @@
+@import "../../styles/variables.scss", "../../styles/main.scss";
+
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.container {
+  @include flexbox(column, center, center);
+  height: 100%;
+  width: 100%;
+  margin: auto;
+
+  &-num-vagas {
+    @include flexbox(row, flex-start, center);
+    width: 328px;
+    margin: 16px 0 8px;
+    border-bottom: 3px solid $color-orange-dark;
+
+    .heading {
+      padding-left: 8.47px;
+      font-weight: 500;
+
+      .number {
+        color: orange;
+      }
+    }
+  }
+}

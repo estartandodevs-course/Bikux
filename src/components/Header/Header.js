@@ -3,7 +3,14 @@ import { ActionButton, SearchInput } from "../index";
 import { useHistory } from "react-router-dom";
 import "./Header.scss";
 
-const Header = ({ showExitButton, showBackButton, isSearchPage, logo }) => {
+const Header = ({
+  showExitButton,
+  showBackButton,
+  isSearchPage,
+  logo,
+  onChangeSearch,
+  onSearch,
+}) => {
   const history = useHistory();
   return (
     <header className="Header">
@@ -14,7 +21,7 @@ const Header = ({ showExitButton, showBackButton, isSearchPage, logo }) => {
       </div>
       <div className="main">
         {isSearchPage ? (
-          <SearchInput onSearch={() => console.log("ban")} />
+          <SearchInput onChange={onChangeSearch} onSearch={onSearch} />
         ) : (
           <img src={logo} className="logo" alt="logo" />
         )}
