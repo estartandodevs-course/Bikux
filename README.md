@@ -30,12 +30,12 @@ Bikux é um site que tem a proposta de ser uma plataforma de emprego formal ou i
 
   <table>
     <tr>
-      <td><img width="240" alt="tela de login" src="src/assets/images/tela-01.png"></td>
-      <td><img width="240" alt="tela com todas as vagas" src="src/assets/images/tela-02.png"></td>
+      <td><img width="240" alt="tela de login" src="src/assets/images/telas/tela-01.png"></td>
+      <td><img width="240" alt="tela com todas as vagas" src="src/assets/images/telas/tela-02.png"></td>
     </tr>
     <tr>
-      <td><img width="240" alt="tela com detalhes da vaga" src="src/assets/images/tela-03.png"></td>
-      <td><img width="240" alt="tela de confirmacao da vaga" src="src/assets/images/tela-04.png"></td>
+      <td><img width="240" alt="tela com detalhes da vaga" src="src/assets/images/telas/tela-03.png"></td>
+      <td><img width="240" alt="tela de confirmacao da vaga" src="src/assets/images/telas/tela-04.png"></td>
     </tr> 
   </table>
 
