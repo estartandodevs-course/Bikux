@@ -18,31 +18,27 @@ function JobCard(props) {
 
   const history = useHistory();
 
-<<<<<<< HEAD
 
     function ChangeToDetails() {
       history.push(`/detalhes/vaga/${indexOftoBeSaw}`)
     }
 
-  
     const isLoggedIn = false;
 
     const favoritarButton = isLoggedIn ? (
-      <div className = "each-button-container">
+      <div className="each-button-container">
           <ActionButton
-            icon="014-favoritar"
+            icon={favorite ? '024-favoritado' : '014-favoritar'}
             iconSize="16"
             onClick={actionFavorite}
-            disabled = {false}
+            disabled={false}
           />
         </div>) : 
           ("");
   
-=======
   function ChangeToDetails() {
     history.push(`/detalhes/vaga/${indexOftoBeSaw}`);
   }
->>>>>>> 6eeb3a89567c97b3f209765ab0b8d0d5765b21e5
 
   return (
     <div className="job-card-container">
@@ -67,18 +63,7 @@ function JobCard(props) {
           />
         </div>
 
-<<<<<<< HEAD
         {favoritarButton}
-=======
-        <div className="each-button-container">
-          <ActionButton
-            icon={favorite ? '024-favoritado' : '014-favoritar'}
-            iconSize="16"
-            onClick={actionFavorite}
-            disabled={false}
-          />
-        </div>
->>>>>>> 6eeb3a89567c97b3f209765ab0b8d0d5765b21e5
 
         <div className="each-button-container">
           <ActionButton

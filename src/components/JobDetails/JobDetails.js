@@ -1,23 +1,8 @@
-<<<<<<< HEAD
-import React from "react";
-import Badges from "../Badges/Badges";
-import { ActionButton} from "../";
-import { useHistory } from "react-router-dom";
-import "./JobDetails.scss";
-import jobList from "../../_mocks/jobList";
-import Buttons from "../Buttons/Buttons";
-
-function JobDetails(props) {
-  const {indexOfCardToBeDetailed, TellAFriend, favorite, IWantThisJob, denounce} = props;
-
-
-  function getDataFromCardToBeDetailed (indexOfCardToBeDetailed) {
-     return jobList.filter ((item) => (item["id"]).toString() ===  indexOfCardToBeDetailed)
-=======
 import React from 'react';
 import Badges from '../Badges/Badges';
 import { ActionButton } from '../';
 import './JobDetails.scss';
+import { useHistory } from "react-router-dom";
 import jobList from '../../_mocks/jobList';
 import Buttons from '../Buttons/Buttons';
 
@@ -35,7 +20,6 @@ function JobDetails(props) {
     return jobList.filter(
       (item) => item['id'].toString() === indexOfCardToBeDetailed,
     );
->>>>>>> 6eeb3a89567c97b3f209765ab0b8d0d5765b21e5
   }
 
   const itemToBeDatailed = getDataFromCardToBeDetailed(indexOfCardToBeDetailed);
@@ -72,14 +56,13 @@ function JobDetails(props) {
     return itemToBeDatailed.map((item) => item.jobDetails);
   }
 
-<<<<<<< HEAD
 //checa se o usuário está autenticado
 
 const history = useHistory();
 
 const isLoggedIn = false;
 
-const loginButton = isLoggedIn ? (
+const vagaButton = isLoggedIn ? (
     <Buttons 
     fontSize = {"20px"} 
     width = {"297px"} 
@@ -93,7 +76,8 @@ const loginButton = isLoggedIn ? (
     height = {"56px"} 
     isPrimary = {true} 
     isOutline = {false} 
-    backgroundColor = " #c5c6c7"
+    backgroundColor = "#c5c6c7"
+    color = "#19232c40"
     children = "Necessário realizar login" 
     onClick = {() => history.push("/login")}/>);
 
@@ -118,7 +102,7 @@ const denunciarButton = isLoggedIn ? (
   </div>) : 
   (<div className="denounce-container"> 
   <ActionButton
-      icon="022-exit"
+      icon="023-login"
       iconSize="16"
       onClick = {() => history.push("/login")}
       children = "Entrar"
@@ -126,10 +110,8 @@ const denunciarButton = isLoggedIn ? (
       />
   </div>);
   
-=======
   const Details = getDetails();
 
->>>>>>> 6eeb3a89567c97b3f209765ab0b8d0d5765b21e5
   return (
     <div className="job-card-container">
       <div className="card-header">
@@ -150,40 +132,14 @@ const denunciarButton = isLoggedIn ? (
           iconSize="16"
           onClick={TellAFriend}
           children="Indicar para amigo"
-          disabled={false}
-        />
-<<<<<<< HEAD
+          disabled={false}/>
+
         {favoritarButton}
-=======
-        <ActionButton
-          icon="014-favoritar"
-          iconSize="16"
-          onClick={favorite}
-          children="Favoritar"
-          disabled={false}
-        />
+
       </div>
-      <Buttons
-        fontSize={'20px'}
-        width={'297px'}
-        height={'56px'}
-        isPrimary={true}
-        isOutline={false}
-        disabled={isUserNotLogged}
-        children="Quero essa vaga!"
-        onClick={IWantThisJob}
-      />
-      <div className="denounce-container">
-        <ActionButton
-          icon="015-denunciar"
-          iconSize="16"
-          onClick={denounce}
-          children="Denunciar esta vaga"
-          disabled={false}
-        />
->>>>>>> 6eeb3a89567c97b3f209765ab0b8d0d5765b21e5
-      </div>
-      {loginButton}
+
+      {vagaButton}
+      
      {denunciarButton}
     </div>
   );

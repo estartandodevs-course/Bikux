@@ -11,7 +11,8 @@ function Buttons(props) {
     width,
     height,
     fontSize,
-    backgroundColor
+    backgroundColor,
+    color
   } = props;
 
   const ClassPrimary = disabled
@@ -23,7 +24,7 @@ function Buttons(props) {
   const style = {
     width: width,
     height: height,
-    backgroundColor: backgroundColor
+    backgroundColor: backgroundColor,
   };
 
   return (
@@ -34,7 +35,7 @@ function Buttons(props) {
       style={style}
     >
       {children && (
-        <span className="Button-children" style={{ fontSize: fontSize }}>
+        <span className="Button-children" style={{ fontSize: fontSize, color: color }}>
           {children}
         </span>
       )}

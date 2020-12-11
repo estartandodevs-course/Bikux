@@ -3,10 +3,6 @@ import { ActionButton, SearchInput } from "../index";
 import { useHistory } from "react-router-dom";
 import "./Header.scss";
 
-<<<<<<< HEAD
-const Header = ({  showBackButton, isSearchPage, logo, showExitButton }) => {
-  
-=======
 const Header = ({
   showExitButton,
   showBackButton,
@@ -15,7 +11,6 @@ const Header = ({
   onChangeSearch,
   onSearch,
 }) => {
->>>>>>> 6eeb3a89567c97b3f209765ab0b8d0d5765b21e5
   const history = useHistory();
   return (
     <header className="Header">
@@ -31,13 +26,11 @@ const Header = ({
           <img src={logo} className="logo" alt="logo" />
         )}
       </div>
-
       <div className="action-btn-place">
         {showExitButton && (
           <ActionButton
             icon="022-exit"
-            onClick={() => history.push("/login")
-          }
+            onClick={() => history.push("/login")}
           />
         )}
       </div>
