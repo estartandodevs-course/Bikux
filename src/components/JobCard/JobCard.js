@@ -1,21 +1,24 @@
-import React from "react";
-import Badges from "../Badges/Badges";
-import { ActionButton } from "../";
-import "./JobCard.scss";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import Badges from '../Badges/Badges';
+import { ActionButton } from '../';
+import './JobCard.scss';
+import { useHistory } from 'react-router-dom';
 
 function JobCard(props) {
-  const { title, 
-    jobImage, 
-    jobDescription, 
-    badgesList, 
-    actionTellAFriend, 
-    actionFavorite,  
+  const {
+    title,
+    jobImage,
+    jobDescription,
+    badgesList,
+    actionTellAFriend,
+    actionFavorite,
     indexOftoBeSaw,
-    } = props;
+    favorite,
+  } = props;
 
-    const history = useHistory();
+  const history = useHistory();
 
+<<<<<<< HEAD
 
     function ChangeToDetails() {
       history.push(`/detalhes/vaga/${indexOftoBeSaw}`)
@@ -35,6 +38,11 @@ function JobCard(props) {
         </div>) : 
           ("");
   
+=======
+  function ChangeToDetails() {
+    history.push(`/detalhes/vaga/${indexOftoBeSaw}`);
+  }
+>>>>>>> 6eeb3a89567c97b3f209765ab0b8d0d5765b21e5
 
   return (
     <div className="job-card-container">
@@ -49,24 +57,35 @@ function JobCard(props) {
       </div>
       <p className="job-description">{jobDescription}</p>
       <div className="buttons-container">
-        <div className = "each-button-container">
+        <div className="each-button-container">
           <ActionButton
             className="button"
             icon="002-indique"
             iconSize="16"
             onClick={actionTellAFriend}
-            disabled = {false}
+            disabled={false}
           />
         </div>
 
+<<<<<<< HEAD
         {favoritarButton}
+=======
+        <div className="each-button-container">
+          <ActionButton
+            icon={favorite ? '024-favoritado' : '014-favoritar'}
+            iconSize="16"
+            onClick={actionFavorite}
+            disabled={false}
+          />
+        </div>
+>>>>>>> 6eeb3a89567c97b3f209765ab0b8d0d5765b21e5
 
-        <div className = "each-button-container">
+        <div className="each-button-container">
           <ActionButton
             icon="016-seemore"
             iconSize="16"
-            onClick = {ChangeToDetails}
-            disabled = {false}
+            onClick={ChangeToDetails}
+            disabled={false}
           />
         </div>
       </div>
