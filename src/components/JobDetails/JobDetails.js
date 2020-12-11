@@ -80,12 +80,12 @@ function JobDetails(props) {
           children="Indicar para amigo"
           disabled={false}
         />
-          <ActionButton
-            icon={favorite ? '024-favoritado' : '014-favoritar'}
-            iconSize="16"
-            onClick={actionFavorite}
-            disabled={false}
-          />
+        <ActionButton
+          icon={favorite ? '024-favoritado' : '014-favoritar'}
+          iconSize="16"
+          onClick={actionFavorite}
+          disabled={false}
+        />
       </div>
       <Buttons
         fontSize={'20px'}

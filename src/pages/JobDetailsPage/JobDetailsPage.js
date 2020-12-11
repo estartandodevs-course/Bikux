@@ -15,17 +15,21 @@ function JobDetailsPage() {
   const [isItAble, setIsItAble] = useState(false);
   const [isDenouncing, setIsDenouncing] = useState(false);
   const [confirmationJob, setconfirmationJob] = useState(false);
-  const [jobIndex, setJobIndex] = useState('');
-  const [jobList, setJobList] = useState(jobListMock);
-
-  const Item = jobList.filter(
-    (item) => item['id'].toString() === params.indexOftoBeSaw,
+  const [item, setItem] = useState(
+    jobListMock.find((item) => item['id'].toString() === params.indexOftoBeSaw),
   );
 
   function getTitle() {
-    const title = Item.map((item) => item.title);
-    const TitleReady = title.pop();
-    return TitleReady;
+    const title = item.title;
+
+    return title;
+  }
+
+  function favorite() {
+    setItem({
+      ...item,
+      favorite: !item.favorite,
+    });
   }
 
   const title = getTitle();
@@ -36,23 +40,6 @@ function JobDetailsPage() {
 
   function closeTellAFriend() {
     setIsItAble(false);
-  }
-
-  function Favorite(toBeFavorite) {
-    const indexOftoBeFavorite = jobList.indexOf(toBeFavorite);
-    console.log("FAVORITE ::" + indexOftoBeFavorite)
-    const newJobList = [...jobList];
-    newJobList[indexOftoBeFavorite] = {
-      ...jobList[indexOftoBeFavorite],
-      favorite: !jobList[indexOftoBeFavorite].favorite,
-    };
-    setJobList(newJobList);
-    console.log(
-      'favoritou a vaga de ',
-      toBeFavorite.title,
-      'cujo index é:',
-      indexOftoBeFavorite,
-    );
   }
 
   function closeConfirmation() {
@@ -84,9 +71,10 @@ function JobDetailsPage() {
           indexOfCardToBeDetailed={params.indexOftoBeSaw}
           isUserNotLogged={false}
           TellAFriend={TellAFriend}
-          actionFavorite={Favorite}
+          actionFavorite={favorite}
           IWantThisJob={IWantThisJob}
           denounce={denounce}
+          favorite={item.favorite}
         />
         {isItAble && (
           <TellAFriendModal
@@ -109,6 +97,5 @@ function JobDetailsPage() {
     </Layout>
   );
 }
-
 
 export default JobDetailsPage;

@@ -23,7 +23,7 @@ const Feed = () => {
 
   function Favorite(toBeFavorite) {
     const indexOftoBeFavorite = jobList.indexOf(toBeFavorite);
-    console.log("FAVORITE ::" + indexOftoBeFavorite)
+    console.log('FAVORITE ::' + indexOftoBeFavorite);
     const newJobList = [...jobList];
     newJobList[indexOftoBeFavorite] = {
       ...jobList[indexOftoBeFavorite],
