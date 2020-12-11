@@ -8,7 +8,6 @@ import "./Login.scss";
 import "../../components/Header/Header.scss";
 import Layout from "../../components/layout/Layout";
 import { SemCadastroModal } from "../../components";
-import "firebase/auth";
 import firebase from "../../firebaseConfig";
 
 const Login = (props) => {
@@ -18,6 +17,8 @@ const Login = (props) => {
   const [isItAble, setIsItAble] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorONEmailOrPassword, setErrorONEmailOrPassword] = useState(false);
+
   function semCadastro() {
     setIsItAble(true);
   }
@@ -26,29 +27,31 @@ const Login = (props) => {
   }
 
   
-
-  function createUser (email, password) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
-  }
+//"teste@bikux.com"  "123456"
+  //function createUser (email, password) {
+    //return firebase.auth().createUserWithEmailAndPassword(email, password);
+  //}
 
   async function handleLogin () {
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
+      setEmail("");
+      setPassword("");
+      history.push("/")
 
     } catch (error) {
-      console.error("ERROR ::", error);
+      console.error("ERROR ::", error.code);
+      setErrorONEmailOrPassword(true);
+     
     }
 
-  }
-
-  function handleLogout () {
-    firebase.auth().signOut();
   }
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log("USER LOGADO :: ", user);
+        setErrorONEmailOrPassword (false);
       }else {
         console.log("USER NÃO LOGADO")
       }
@@ -65,12 +68,16 @@ const Login = (props) => {
             type="text"
             placeholder="Digite aqui seu e-mail"
             onChange = {(event) => setEmail(event.target.value)}
+            InputError = {errorONEmailOrPassword}
+            value = {email}
           />
           <InputField
             label="Senha"
             type="password"
             placeholder="Digite aqui sua senha"
             onChange = {(event) => setPassword(event.target.value)}
+            InputError = {errorONEmailOrPassword}
+            value = {password}
           />
         </div>
         <div className="btn-container">
@@ -83,16 +90,6 @@ const Login = (props) => {
             isOutline={false}
             disabled={false}
             children="Entrar"
-          />
-           <Buttons
-            onClick={handleLogout}
-            fontSize={"20px"}
-            width={"301px"}
-            height={"56px"}
-            isPrimary={false}
-            isOutline={false}
-            disabled={false}
-            children="sair"
           />
           <div className="space-between" />
           <Buttons

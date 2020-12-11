@@ -1,6 +1,7 @@
 import React from "react";
 import { ActionButton, SearchInput } from "../index";
 import { useHistory } from "react-router-dom";
+import firebase from "../../firebaseConfig";
 import "./Header.scss";
 
 const Header = ({
@@ -12,6 +13,14 @@ const Header = ({
   onSearch,
 }) => {
   const history = useHistory();
+
+  
+ function handleLogout () {
+    firebase.auth().signOut();
+    history.push("/login")
+  }
+
+
   return (
     <header className="Header">
       <div className="action-btn-place">
@@ -30,7 +39,7 @@ const Header = ({
         {showExitButton && (
           <ActionButton
             icon="022-exit"
-            onClick={() => history.push("/login")}
+            onClick={handleLogout}
           />
         )}
       </div>
