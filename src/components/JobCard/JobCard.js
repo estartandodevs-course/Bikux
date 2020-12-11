@@ -1,8 +1,8 @@
-import React from "react";
-import Badges from "../Badges/Badges";
-import { ActionButton } from "../";
-import "./JobCard.scss";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import Badges from '../Badges/Badges';
+import { ActionButton } from '../';
+import './JobCard.scss';
+import { useHistory } from 'react-router-dom';
 
 function JobCard(props) {
   const {
@@ -13,6 +13,7 @@ function JobCard(props) {
     actionTellAFriend,
     actionFavorite,
     indexOftoBeSaw,
+    favorite,
   } = props;
 
   const history = useHistory();
@@ -46,7 +47,7 @@ function JobCard(props) {
 
         <div className="each-button-container">
           <ActionButton
-            icon="014-favoritar"
+            icon={favorite ? '024-favoritado' : '014-favoritar'}
             iconSize="16"
             onClick={actionFavorite}
             disabled={false}
