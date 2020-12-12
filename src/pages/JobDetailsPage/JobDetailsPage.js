@@ -81,6 +81,7 @@ function JobDetailsPage() {
             jobTitle={title}
             jobIndex={params.indexOftoBeSaw}
             close={closeTellAFriend}
+            isdetailsPage = {true}
           />
         )}
         {isDenouncing && (

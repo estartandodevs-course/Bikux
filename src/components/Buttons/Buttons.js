@@ -1,4 +1,5 @@
 import React from "react";
+import {Icon} from "../index";
 import "./Buttons.scss";
 
 function Buttons(props) {
@@ -11,15 +12,12 @@ function Buttons(props) {
     width,
     height,
     fontSize,
+    img,
     backgroundColor,
     color
   } = props;
 
-  const ClassPrimary = disabled
-    ? "disabled"
-    : isPrimary
-    ? "primary"
-    : "secondary";
+  const ClassPrimary = disabled ? "disabled": isPrimary ? "primary" : "secondary";
   const Class = isOutline ? ClassPrimary + "-outline" : ClassPrimary;
   const style = {
     width: width,
@@ -34,11 +32,18 @@ function Buttons(props) {
       onClick={onClick}
       style={style}
     >
+    {img && 
+      <div className = "button-img-container">
+        <Icon name= {img} size="24" />
+      </div>
+    }
+
       {children && (
         <span className="Button-children" style={{ fontSize: fontSize, color: color }}>
           {children}
         </span>
       )}
+
     </button>
   );
 }

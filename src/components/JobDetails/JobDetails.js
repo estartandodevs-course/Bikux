@@ -78,15 +78,16 @@ width={'297px'}
    height = {"56px"} 
    isPrimary = {true} 
    isOutline = {false} 
-   backgroundColor = "#c5c6c7"
+   disabled={true}
    color = "#19232c40"
    children = "Necessário realizar login" 
-   onClick = {() => history.push("/login")}/>);
+  />);
 
 const buttonFavorite = isLoggedIn ? (
  <ActionButton
  icon={favorite ? '024-favoritado' : '014-favoritar'}
  iconSize="16"
+ children="Favoritar"
  onClick={actionFavorite}
  disabled={false}/>) : 
   ("");
@@ -104,7 +105,7 @@ const buttonDenounce = isLoggedIn ? (
    <ActionButton
      icon="023-login"
      iconSize="16"
-   onClick = {() => history.push("/login")}
+    onClick = {() => history.push("/login")}
      children = "Entrar"
      disabled = {false}/>
  </div>);

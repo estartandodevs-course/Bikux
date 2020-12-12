@@ -17,11 +17,11 @@
     background-color: $color-modal-container-background;
     z-index: 2;
 
-    .modal {
+    .modal-tell-a-friend {
         @include simple-flex(column, space-around, center);
 
         width: 328px;
-        min-height: 352px;
+        min-height: 455px;
         background-color: $color-white;
         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
         border-radius: 4px;
@@ -52,6 +52,20 @@
             text-align: center;
             margin-top: 21px;
             margin-bottom: 12px;
+        }
+
+        .or {
+            font-family: Kanit;
+            font-weight: 500;
+            font-size: 25px;
+            text-align: center;
+            margin: 8px 0;
+        }
+
+        .buttons-container {
+            @include simple-flex(column, center, center);
+            margin-top: 19px;
+            margin-bottom: 23px;
         }
     }
 }
