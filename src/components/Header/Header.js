@@ -1,8 +1,8 @@
 import React from "react";
 import { ActionButton, SearchInput } from "../index";
 import { useHistory } from "react-router-dom";
-import firebase from "../../firebaseConfig";
 import "./Header.scss";
+import { logout } from "../../services/auth.service";
 
 const Header = ({
   showExitButton,
@@ -14,10 +14,15 @@ const Header = ({
 }) => {
   const history = useHistory();
 
-  
- function handleLogout () {
-    firebase.auth().signOut();
-    history.push("/login")
+
+  async function handleLogout() {
+    const response = await logout();
+    if (response.success) {
+      history.push("/login")
+    }
+    else {
+      alert(response.data.message);
+    }
   }
 
 
