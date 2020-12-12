@@ -36,10 +36,6 @@ function JobCard(props) {
         </div>) : 
           ("");
   
-  function ChangeToDetails() {
-    history.push(`/detalhes/vaga/${indexOftoBeSaw}`);
-  }
-
   return (
     <div className="job-card-container">
       <div className="card-header">
