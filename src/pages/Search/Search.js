@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Header } from '../../components';
+import { Header, TellAFriendModal } from '../../components';
 import Layout from '../../components/layout/Layout';
 import jobList from '../../_mocks/jobList';
 import JobCard from '../../components/JobCard/JobCard';
@@ -9,6 +9,20 @@ import firebase from "firebase/app";
 
 const Search = () => {
   const [search, setSearch] = useState('');
+  const [isItAble, setIsItAble] = useState(false);
+  const [jobTitle, setJobTitle] = useState('');
+  const [jobIndex, setJobIndex] = useState('');
+
+  function tellAFriend(toBeIndicated) {
+    const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
+    setJobTitle(toBeIndicated.title);
+    setJobIndex(indexOftoBeIndicated);
+    setIsItAble(true);
+  }
+
+  function closeTellAFriend() {
+    setIsItAble(false);
+  }
 
   const [filteredJob, setFilteredJobs] = useState(jobList);
   useEffect(() => {
@@ -82,12 +96,20 @@ const Search = () => {
             title={job.title}
             jobImage={job.jobImage}
             jobDescription={job.jobDescription}
-            // actionTellAFriend={tellAFriend(job)}
+            actionTellAFriend={tellAFriend.bind(this, job)}
             actionFavorite={() => Favorite(job)}
             indexOftoBeSaw={job.id}
             favorite={job.favorite}
           />
         ))}
+         {isItAble && (
+          <TellAFriendModal
+            jobTitle={jobTitle}
+            jobIndex={jobIndex}
+            isdetailsPage = {false}
+            close={closeTellAFriend}
+          />
+        )}
       </div>
     </Layout>
   );
