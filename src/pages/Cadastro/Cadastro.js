@@ -3,9 +3,8 @@ import InputField from "../../components/inputField/inputField";
 import Buttons from "../../components/Buttons/Buttons";
 import { useHistory } from "react-router-dom";
 import "./Cadastro.scss";
-import ActionButton from "../../components/ActionButton/ActionButton";
 import SelectField from "../../components/SelectField/SelectField";
-import { Header } from "../../components";
+import { Header, SendFilesBtn } from "../../components";
 import logo from "../../assets/images/logo.svg";
 
 const Cadastro = () => {
@@ -32,31 +31,23 @@ const Cadastro = () => {
           label="Selecione suas áreas de interesse"
           required
         />
-        <div className="icon-container">
-          <div className="icon-btn">
-            <ActionButton
-              isReverse
-              reverseIcon
-              // onClick={semCadastro}
-              children="Adicione seu currículo"
-              icon="009-curriculo"
-              iconSize="39.75"
-              disabled={false}
-            />
-          </div>
-          <div className="icon-btn">
-            <ActionButton
-              isReverse
-              reverseIcon
-              // onClick={semCadastro}
-              children="E que tal uma foto?"
-              icon="003-avatar"
-              iconSize="39.75"
-              disabled={false}
-            />
-          </div>
+        <div className="files-btn">
+          <SendFilesBtn
+            onClick={() => {}}
+            text="Adicione seu currículo!"
+            icon="009-curriculo"
+            iconSize="39.75"
+            disabled={false}
+          />
+          <div className="space"></div>
+          <SendFilesBtn
+            onClick={() => {}}
+            text="E que tal uma foto?"
+            icon="003-avatar"
+            iconSize="39.75"
+            disabled={false}
+          />
         </div>
-
         <InputField
           label="CPF"
           type="text"

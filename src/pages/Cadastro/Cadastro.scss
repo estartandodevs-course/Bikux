@@ -12,12 +12,11 @@
   margin-top: 8px;
   position: relative;
 
-  .icon-container {
+  .files-btn {
     @include flexbox(row, center, center);
-    padding-top: 5px;
 
-    &-btn {
-      @include flexbox(column, center, center);
+    .space {
+      margin: 0 24px;
     }
   }
 

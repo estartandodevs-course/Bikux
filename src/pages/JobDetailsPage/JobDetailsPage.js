@@ -7,7 +7,7 @@ import {
   ConfirmacaoModal,
 } from "../../components/index";
 import Layout from "../../components/layout/Layout";
-import jobList from "../../_mocks/jobList";
+import jobListMock from "../../_mocks/jobList";
 import "./JobDetailsPage.scss";
 
 function JobDetailsPage() {
@@ -15,15 +15,21 @@ function JobDetailsPage() {
   const [isItAble, setIsItAble] = useState(false);
   const [isDenouncing, setIsDenouncing] = useState(false);
   const [confirmationJob, setconfirmationJob] = useState(false);
-
-  const Item = jobList.filter(
-    (item) => item["id"].toString() === params.indexOftoBeSaw
+  const [item, setItem] = useState(
+    jobListMock.find((item) => item["id"].toString() === params.indexOftoBeSaw)
   );
 
   function getTitle() {
-    const title = Item.map((item) => item.title);
-    const TitleReady = title.pop();
-    return TitleReady;
+    const title = item.title;
+
+    return title;
+  }
+
+  function favorite() {
+    setItem({
+      ...item,
+      favorite: !item.favorite,
+    });
   }
 
   const title = getTitle();
@@ -36,14 +42,6 @@ function JobDetailsPage() {
     setIsItAble(false);
   }
 
-  function favorite() {
-    console.log(
-      "favoritou a vaga de ",
-      title,
-      "cujo index é:",
-      params.indexOftoBeSaw
-    );
-  }
   function closeConfirmation() {
     setconfirmationJob(false);
   }
@@ -74,9 +72,10 @@ function JobDetailsPage() {
           indexOfCardToBeDetailed={params.indexOftoBeSaw}
           isUserNotLogged={false}
           TellAFriend={TellAFriend}
-          favorite={favorite}
+          actionFavorite={favorite}
           IWantThisJob={IWantThisJob}
           denounce={denounce}
+          favorite={item.favorite}
         />
         {isItAble && (
           <TellAFriendModal

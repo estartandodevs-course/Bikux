@@ -1,23 +1,44 @@
-import React, { useState } from "react";
-import { Header } from "../../components";
-import Layout from "../../components/layout/Layout";
-import jobList from "../../_mocks/jobList";
-import JobCard from "../../components/JobCard/JobCard";
-import "./Search.scss";
-import Icon from "../../components/Icon/Icon";
+import React, { useState, useEffect } from 'react';
+import { Header } from '../../components';
+import Layout from '../../components/layout/Layout';
+import jobList from '../../_mocks/jobList';
+import JobCard from '../../components/JobCard/JobCard';
+import './Search.scss';
+import Icon from '../../components/Icon/Icon';
 
 const Search = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
-  const searchJob = jobList.filter((job) => {
-    return job.title.toLowerCase().includes(search.toLowerCase());
-  });
+  const [filteredJob, setFilteredJobs] = useState(jobList);
+  useEffect(() => {
+    setFilteredJobs(
+      jobList.filter((job) => {
+        return job.title.toLowerCase().includes(search.toLowerCase());
+      }),
+    );
+  }, [search]);
+  function Favorite(toBeFavorite) {
+    const indexOftoBeFavorite = filteredJob.indexOf(toBeFavorite);
+    console.log('FAVORITE ::' + indexOftoBeFavorite);
+    const newJobList = [...filteredJob];
+    newJobList[indexOftoBeFavorite] = {
+      ...filteredJob[indexOftoBeFavorite],
+      favorite: !filteredJob[indexOftoBeFavorite].favorite,
+    };
+    setFilteredJobs(newJobList);
+    console.log(
+      'favoritou a vaga de ',
+      toBeFavorite.title,
+      'cujo index é:',
+      indexOftoBeFavorite,
+    );
+  }
 
   const onSearch = () => {
     console.log(search);
   };
 
-  const numVagas = searchJob.length;
+  const numVagas = filteredJob.length;
   const calcNumVagas =
     numVagas > 0 ? (
       <h4 className="heading">
@@ -43,7 +64,7 @@ const Search = () => {
           {calcNumVagas}
         </div>
 
-        {searchJob.map((job, index) => (
+        {filteredJob.map((job, index) => (
           <JobCard
             key={index}
             badgesList={job.badgesList}
@@ -51,8 +72,9 @@ const Search = () => {
             jobImage={job.jobImage}
             jobDescription={job.jobDescription}
             // actionTellAFriend={tellAFriend(job)}
-            // actionFavorite={Favorite(job)}
+            actionFavorite={() => Favorite(job)}
             indexOftoBeSaw={job.id}
+            favorite={job.favorite}
           />
         ))}
       </div>

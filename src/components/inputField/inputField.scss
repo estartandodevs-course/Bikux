@@ -22,12 +22,41 @@
       font-weight: 200;
     }
 
+    .input {
+      width: 328px;
+      height: 35.93px;
+      border-radius: 3px;
+      border: 1px solid $color-black;
+      outline: none;
+      box-sizing: border-box;
+      padding-left: 15px;
+      color: $color-black;
+      font-family: "Kanit Regular";
+      font-weight: 200;
+    }
+
+    .error {
+      width: 328px;
+      height: 35.93px;
+      border-radius: 3px;
+      border: 1px solid $color-black;
+      outline: none;
+      box-sizing: border-box;
+      padding-left: 15px;
+      font-family: "Kanit Regular";
+      font-weight: 200;
+      border: 2px dashed $color-input-error-border;
+      background-color: $color-input-error;
+      &::-webkit-input-placeholder {
+        color: $color-error;
+      }
+    }
+
     label {
       padding-left: 5px;
       font-family: "Kanit";
       line-height: 150%;
       color: $color-black;
-      position: relative;
 
       .required {
         color: $color-error;
