@@ -2,19 +2,19 @@ import React from 'react';
 import Badges from '../Badges/Badges';
 import { ActionButton } from '../';
 import './JobDetails.scss';
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import jobList from '../../_mocks/jobList';
 import Buttons from '../Buttons/Buttons';
-import firebase from "../../firebaseConfig";
+
 
 function JobDetails(props) {
   const {
     indexOfCardToBeDetailed,
     TellAFriend,
-    actionFavorite,
+    //actionFavorite,
     IWantThisJob,
-    denounce,
-    favorite,
+    //denounce,
+    //favorite,
   } = props;
 
   function getDataFromCardToBeDetailed(indexOfCardToBeDetailed) {
@@ -59,56 +59,55 @@ function JobDetails(props) {
 
 //checa se o usuário está autenticado
 
-const history = useHistory();
+//const history = useHistory();
 
- var isLoggedIn = firebase.auth().currentUser
 
-const vagaButton = isLoggedIn != null ? (
-  <Buttons
-  fontSize={'20px'}
-  width={'297px'}
-  height={'56px'}
-  isPrimary={true}
-  isOutline={false}
-  children="Quero essa vaga!"
-  onClick={IWantThisJob}/>) : 
-  (<Buttons fontSize = {"20px"} 
-    width = {"297px"} 
-    height = {"56px"} 
-    isPrimary = {true} 
-    isOutline = {false} 
-    backgroundColor = "#c5c6c7"
-    color = "#19232c40"
-    children = "Necessário realizar login" 
-    onClick = {() => history.push("/login")}/>);
+//let vagaButton = isLoggedIn  ? (
+//  <Buttons
+//  fontSize={'20px'}
+///  width={'297px'}
+//  height={'56px'}
+//  isPrimary={true}
+//  isOutline={false}
+//  children="Quero essa vaga!"
+//  onClick={IWantThisJob}/>) : 
+//  (<Buttons fontSize = {"20px"} 
+//    width = {"297px"} 
+//    height = {"56px"} 
+//    isPrimary = {true} 
+//    isOutline = {false} 
+ //   backgroundColor = "#c5c6c7"
+ //   color = "#19232c40"
+  //  children = "Necessário realizar login" 
+  //  onClick = {() => history.push("/login")}/>);
 
-const favoritarButton = isLoggedIn != null ? (
-  <ActionButton
-  icon={favorite ? '024-favoritado' : '014-favoritar'}
-  iconSize="16"
-  onClick={actionFavorite}
-  disabled={false}/>) : 
-  ("");
+//let favoritarButton = isLoggedIn ? (
+ // <ActionButton
+ // icon={favorite ? '024-favoritado' : '014-favoritar'}
+ // iconSize="16"
+ // onClick={actionFavorite}
+ // disabled={false}/>) : 
+  //("");
 
-const denunciarButton = isLoggedIn != null ? (
-  <div className="denounce-container">
-    <ActionButton
-      icon="015-denunciar"
-      iconSize="16"
-      onClick={denounce}
-      children="Denunciar esta vaga"
-      disabled={false}/>
-    </div>) : 
-  (<div className="denounce-container"> 
-    <ActionButton
-      icon="023-login"
-      iconSize="16"
-      onClick = {() => history.push("/login")}
-      children = "Entrar"
-      disabled = {false}/>
-  </div>);
+//let denunciarButton = isLoggedIn ? (
+//  <div className="denounce-container">
+//    <ActionButton
+//      icon="015-denunciar"
+//      iconSize="16"
+//      onClick={denounce}
+//      children="Denunciar esta vaga"
+//      disabled={false}/>
+//    </div>) : 
+//  (<div className="denounce-container"> 
+//    <ActionButton
+//      icon="023-login"
+ //     iconSize="16"
+//    onClick = {() => history.push("/login")}
+ //     children = "Entrar"
+//      disabled = {false}/>
+//  </div>);
   
-  const Details = getDetails();
+//  const Details = getDetails();
 
   return (
     <div className="job-card-container">
@@ -122,7 +121,7 @@ const denunciarButton = isLoggedIn != null ? (
         </div>
       </div>
       <h6 className="job-description-title">{description}</h6>
-      <p className="details">{Details}</p>
+      <p className="details">{getDetails()}</p>
       <div className="buttons-container-details">
         <ActionButton
           className="button"
@@ -132,11 +131,15 @@ const denunciarButton = isLoggedIn != null ? (
           children="Indicar para amigo"
           disabled={false}/>
 
-         {favoritarButton}
-
       </div>
-      {vagaButton}
-     {denunciarButton}
+      <Buttons
+      fontSize={'20px'}
+      width={'297px'}
+      height={'56px'}
+      isPrimary={true}
+      isOutline={false}
+      children="Quero essa vaga!"
+      onClick={IWantThisJob}/>
     </div>
   );
 }
