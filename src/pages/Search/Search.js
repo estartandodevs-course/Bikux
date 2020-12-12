@@ -5,7 +5,7 @@ import jobList from '../../_mocks/jobList';
 import JobCard from '../../components/JobCard/JobCard';
 import './Search.scss';
 import Icon from '../../components/Icon/Icon';
-//import { IsLoggedIn} from "../../services/auth.service";
+import firebase from "firebase/app";
 
 const Search = () => {
   const [search, setSearch] = useState('');
@@ -49,32 +49,26 @@ const Search = () => {
       <h4 className="heading">nenhuma vaga encontrada</h4>
     );
 
-  //let isLoggedIn = IsLoggedIn();
+  var isLoggedIn = firebase.auth().currentUser
 
- //let header = isLoggedIn ? ( 
- // <Header
- //   showBackButton
- //   showExitButton
- //   isSearchPage
- //   onChangeSearch={setSearch}
- //   onSearch={onSearch}
- // />
- // ):(<Header
- //   showBackButton
- //   isSearchPage
- //   onChangeSearch={setSearch}
- //   onSearch={onSearch}
- // />
-//)
+  const header = isLoggedIn ? ( 
+ <Header
+   showBackButton
+   showExitButton
+   isSearchPage
+   onChangeSearch={setSearch}
+   onSearch={onSearch}
+ />
+ ):(<Header
+   showBackButton
+   isSearchPage
+   onChangeSearch={setSearch}
+   onSearch={onSearch}
+ />
+)
   return (
     <Layout showBottomNavBar>
-      <Header
-         showBackButton
-         showExitButton
-         isSearchPage
-         onChangeSearch={setSearch}
-         onSearch={onSearch}
-       />
+     {header}
       <div className="container">
         <div className="container-num-vagas">
           <Icon name="010-atencao" />
