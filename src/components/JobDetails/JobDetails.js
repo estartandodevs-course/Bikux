@@ -5,11 +5,11 @@ import './JobDetails.scss';
 import { useHistory } from "react-router-dom";
 import jobList from '../../_mocks/jobList';
 import Buttons from '../Buttons/Buttons';
+import firebase from "../../firebaseConfig";
 
 function JobDetails(props) {
   const {
     indexOfCardToBeDetailed,
-    isUserNotLogged,
     TellAFriend,
     actionFavorite,
     IWantThisJob,
@@ -61,17 +61,17 @@ function JobDetails(props) {
 
 const history = useHistory();
 
-const isLoggedIn = false;
+ var isLoggedIn = firebase.auth().currentUser
 
-const vagaButton = isLoggedIn ? (
-    <Buttons 
-    fontSize = {"20px"} 
-    width = {"297px"} 
-    height = {"56px"} 
-    isPrimary = {true} 
-    isOutline = {false} 
-    children = "Quero essa vaga!" 
-    onClick = {IWantThisJob}/>) : 
+const vagaButton = isLoggedIn != null ? (
+  <Buttons
+  fontSize={'20px'}
+  width={'297px'}
+  height={'56px'}
+  isPrimary={true}
+  isOutline={false}
+  children="Quero essa vaga!"
+  onClick={IWantThisJob}/>) : 
   (<Buttons fontSize = {"20px"} 
     width = {"297px"} 
     height = {"56px"} 
@@ -82,33 +82,30 @@ const vagaButton = isLoggedIn ? (
     children = "Necessário realizar login" 
     onClick = {() => history.push("/login")}/>);
 
-const favoritarButton = isLoggedIn ? (
-<ActionButton
-    icon="014-favoritar"
-    iconSize="16"
-    onClick={favorite}
-    children = "Favoritar"
-    disabled = {false}/>) : 
-    ("");
-
-const denunciarButton = isLoggedIn ? (
-  <div className="denounce-container"> 
+const favoritarButton = isLoggedIn != null ? (
   <ActionButton
+  icon={favorite ? '024-favoritado' : '014-favoritar'}
+  iconSize="16"
+  onClick={actionFavorite}
+  disabled={false}/>) : 
+  ("");
+
+const denunciarButton = isLoggedIn != null ? (
+  <div className="denounce-container">
+    <ActionButton
       icon="015-denunciar"
       iconSize="16"
       onClick={denounce}
-      children = "Denunciar esta vaga"
-      disabled = {false}
-      />
-  </div>) : 
+      children="Denunciar esta vaga"
+      disabled={false}/>
+    </div>) : 
   (<div className="denounce-container"> 
-  <ActionButton
+    <ActionButton
       icon="023-login"
       iconSize="16"
       onClick = {() => history.push("/login")}
       children = "Entrar"
-      disabled = {false}
-      />
+      disabled = {false}/>
   </div>);
   
   const Details = getDetails();
@@ -133,44 +130,12 @@ const denunciarButton = isLoggedIn ? (
           iconSize="16"
           onClick={TellAFriend}
           children="Indicar para amigo"
-<<<<<<< HEAD
           disabled={false}/>
 
-        {favoritarButton}
+         {favoritarButton}
 
-=======
-          disabled={false}
-        />
-        <ActionButton
-          icon={favorite ? '024-favoritado' : '014-favoritar'}
-          iconSize="16"
-          onClick={actionFavorite}
-          disabled={false}
-        />
       </div>
-      <Buttons
-        fontSize={'20px'}
-        width={'297px'}
-        height={'56px'}
-        isPrimary={true}
-        isOutline={false}
-        disabled={isUserNotLogged}
-        children="Quero essa vaga!"
-        onClick={IWantThisJob}
-      />
-      <div className="denounce-container">
-        <ActionButton
-          icon="015-denunciar"
-          iconSize="16"
-          onClick={denounce}
-          children="Denunciar esta vaga"
-          disabled={false}
-        />
->>>>>>> ae9a54961e16e8cad92b8a2127a6e3e1afdbaea9
-      </div>
-
       {vagaButton}
-      
      {denunciarButton}
     </div>
   );

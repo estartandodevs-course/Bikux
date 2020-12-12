@@ -3,6 +3,7 @@ import Badges from '../Badges/Badges';
 import { ActionButton } from '../';
 import './JobCard.scss';
 import { useHistory } from 'react-router-dom';
+import firebase from "../../firebaseConfig";
 
 function JobCard(props) {
   const {
@@ -18,14 +19,13 @@ function JobCard(props) {
 
   const history = useHistory();
 
-
     function ChangeToDetails() {
       history.push(`/detalhes/vaga/${indexOftoBeSaw}`)
     }
 
-    const isLoggedIn = false;
+    var isLoggedIn = firebase.auth().currentUser
 
-    const favoritarButton = isLoggedIn ? (
+    const favoritarButton = isLoggedIn != null ? (
       <div className="each-button-container">
           <ActionButton
             icon={favorite ? '024-favoritado' : '014-favoritar'}

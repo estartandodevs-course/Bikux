@@ -2,22 +2,14 @@ import React from "react";
 import BottomNavBar from "../BottomNavBar/BottomNavBar";
 import Header from "../Header/Header";
 import logo from "../../assets/images/logo.svg";
+import firebase from "../../firebaseConfig";
 
 const Layout = (props) => {
   const { showHeader, showBottomNavBar, children } = props;
 
-  /* const isLoggedIn = firebase.auth().onAuthStateChanged(function(user){
-    if (user) {
-      return true
-    } else {
-      return false
-    }
-  })*/ 
+  var isLoggedIn = firebase.auth().currentUser
 
-
-  const isLoggedIn = false;
-
-  const headerKind = isLoggedIn ? (
+  const headerKind = isLoggedIn != null ? (
     <>
       {showHeader && <Header logo={logo} showBackButton showExitButton />}
     </>
