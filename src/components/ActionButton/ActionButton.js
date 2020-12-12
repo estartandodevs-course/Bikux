@@ -5,13 +5,15 @@ import "./ActionButton.scss";
 const ActionButton = ({
   icon,
   iconSize,
+  backgroundColor,
   onClick,
   children,
   disabled,
   isReverse,
 }) => {
   return (
-    <button className="ActionButton" disabled={disabled} onClick={onClick}>
+    <button
+     className="ActionButton" disabled={disabled} onClick={onClick}>
       <div className="content">
         {icon && !isReverse && <Icon name={icon} size={iconSize} />}
         {children && <span className="label">{children}</span>}

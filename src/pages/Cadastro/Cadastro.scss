@@ -1,0 +1,20 @@
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.icon-container {
+  @include flexbox(row, center, center);
+  padding-top: 5px;
+
+  &-btn {
+    @include flexbox(column, center, center);
+  }
+}
+
+.btn-container {
+  @include flexbox(row, center, center);
+  margin-top: 22px;
+}
