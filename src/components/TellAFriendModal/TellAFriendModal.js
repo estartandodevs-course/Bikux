@@ -5,7 +5,7 @@ import Buttons from "../Buttons/Buttons";
 
 function TellAFriendModal (props) {
 
-    const {close, jobTitle, jobIndex} = props;
+    const {close, jobTitle, jobIndex, isdetailsPage} = props;
 
     const [email, setEmail] = useState("");
 
@@ -20,6 +20,22 @@ function TellAFriendModal (props) {
         setTimeout (close, 200)
     }
 
+    function shareWithWhatsApp () {
+
+        const actualUrl = window.location.href.toString();
+
+        if (isdetailsPage) {
+
+            window.open(`https://api.whatsapp.com/send?text=${actualUrl}`);
+
+        } else {
+
+            window.open(`https://api.whatsapp.com/send?text=${actualUrl}detalhes/vaga/${jobIndex}`);
+        }
+        
+        setTimeout (close, 200)
+    }
+
     function Input (event) {
         setEmail (event.target.value);
     }
@@ -28,7 +44,7 @@ function TellAFriendModal (props) {
         return (
         <div className = "modal-container">
 
-            <div className = "modal">
+            <div className = "modal-tell-a-friend">
 
                 <div className = "close-button-container" onClick = {close}>
                     <span className = "close-button">✕</span>
@@ -40,8 +56,14 @@ function TellAFriendModal (props) {
 
                 <InputField label = {"E-mail"} type = {"text"} placeholder = {"Digite aqui o e-mail do seu amigo"}  width = {"297px"} height = {"35.9px"} onChange = {Input}/>
 
+                <div className = "buttons-container" >
+                    <Buttons width = {"297px"} height = {"56px"} fontSize = {"20px"} isPrimary = {true} isOutline = {false} disabled = {false} children = "Indicar" onClick = {createObjectToBeShared}/>
 
-                <Buttons width = {"297px"} height = {"56px"} fontSize = {"20px"} isPrimary = {true} isOutline = {false} disabled = {false} children = "Indicar" onClick = {createObjectToBeShared}/>
+                    <span className = "or"> ou </span>
+
+                    <Buttons  img = "logos_whatsapp" width = {"198px"} height = {"56px"} fontSize = {"20px"} isPrimary = {true} isOutline = {false} disabled = {false} children = "Via WhatsApp" onClick = {shareWithWhatsApp}/>
+
+                </div>
                 
             </div>
 

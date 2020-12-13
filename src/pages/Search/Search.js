@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Header } from '../../components';
+import { Header, TellAFriendModal } from '../../components';
 import Layout from '../../components/layout/Layout';
 import jobList from '../../_mocks/jobList';
 import JobCard from '../../components/JobCard/JobCard';
 import './Search.scss';
 import Icon from '../../components/Icon/Icon';
-import firebase from "../../firebaseConfig";
+import firebase from "firebase/app";
 
 const Search = () => {
   const [search, setSearch] = useState('');
+  const [isItAble, setIsItAble] = useState(false);
+  const [jobTitle, setJobTitle] = useState('');
+  const [jobIndex, setJobIndex] = useState('');
+
+  function tellAFriend(toBeIndicated) {
+    const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
+    setJobTitle(toBeIndicated.title);
+    setJobIndex(indexOftoBeIndicated);
+    setIsItAble(true);
+  }
+
+  function closeTellAFriend() {
+    setIsItAble(false);
+  }
 
   const [filteredJob, setFilteredJobs] = useState(jobList);
   useEffect(() => {
@@ -51,24 +65,24 @@ const Search = () => {
 
   var isLoggedIn = firebase.auth().currentUser
 
-  const header = isLoggedIn != null ? ( 
-  <Header
-    showBackButton
-    showExitButton
-    isSearchPage
-    onChangeSearch={setSearch}
-    onSearch={onSearch}
-  />
-  ):(<Header
-    showBackButton
-    isSearchPage
-    onChangeSearch={setSearch}
-    onSearch={onSearch}
-  />
+  const header = isLoggedIn ? ( 
+ <Header
+   showBackButton
+   showExitButton
+   isSearchPage
+   onChangeSearch={setSearch}
+   onSearch={onSearch}
+ />
+ ):(<Header
+   showBackButton
+   isSearchPage
+   onChangeSearch={setSearch}
+   onSearch={onSearch}
+ />
 )
   return (
     <Layout showBottomNavBar>
-      {header}
+     {header}
       <div className="container">
         <div className="container-num-vagas">
           <Icon name="010-atencao" />
@@ -82,12 +96,20 @@ const Search = () => {
             title={job.title}
             jobImage={job.jobImage}
             jobDescription={job.jobDescription}
-            // actionTellAFriend={tellAFriend(job)}
+            actionTellAFriend={tellAFriend.bind(this, job)}
             actionFavorite={() => Favorite(job)}
             indexOftoBeSaw={job.id}
             favorite={job.favorite}
           />
         ))}
+         {isItAble && (
+          <TellAFriendModal
+            jobTitle={jobTitle}
+            jobIndex={jobIndex}
+            isdetailsPage = {false}
+            close={closeTellAFriend}
+          />
+        )}
       </div>
     </Layout>
   );

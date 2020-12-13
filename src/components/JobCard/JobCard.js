@@ -3,7 +3,7 @@ import Badges from '../Badges/Badges';
 import { ActionButton } from '../';
 import './JobCard.scss';
 import { useHistory } from 'react-router-dom';
-import firebase from "../../firebaseConfig";
+import firebase from "firebase/app";
 
 function JobCard(props) {
   const {

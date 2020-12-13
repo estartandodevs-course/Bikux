@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import Buttons from "../../components/Buttons/Buttons";
 import ActionButton from "../../components/ActionButton/ActionButton";
 import InputField from "../../components/inputField/inputField";
@@ -8,7 +8,7 @@ import "./Login.scss";
 import "../../components/Header/Header.scss";
 import Layout from "../../components/layout/Layout";
 import { SemCadastroModal } from "../../components";
-import firebase from "../../firebaseConfig";
+import { login } from "../../services/auth.service";
 
 const Login = (props) => {
 
@@ -32,31 +32,21 @@ const Login = (props) => {
     //return firebase.auth().createUserWithEmailAndPassword(email, password);
   //}
 
-  async function handleLogin () {
-    try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
+
+  async function handleLogin() {
+    const response = await login(email, password);
+    if (response.success) {
+      setErrorONEmailOrPassword (false);
       setEmail("");
       setPassword("");
       history.push("/")
-
-    } catch (error) {
-      console.error("ERROR ::", error.code);
-      setErrorONEmailOrPassword(true);
-     
     }
-
+    else {
+      console.error("ERROR ::", response.data.message);
+      setErrorONEmailOrPassword(true);
+    }
   }
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log("USER LOGADO :: ", user);
-        setErrorONEmailOrPassword (false);
-      }else {
-        console.log("USER NÃO LOGADO")
-      }
-    })
-  }, []);
 
   return (
     <Layout>
