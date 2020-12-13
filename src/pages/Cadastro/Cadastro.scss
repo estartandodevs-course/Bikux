@@ -9,7 +9,7 @@
 
 .input-container {
   @include flexbox(column, center, center);
-  margin-top: 8px;
+  margin-top: 6px;
   position: relative;
 
   .files-btn {
@@ -33,6 +33,6 @@
 
 .btn-container {
   @include flexbox(row, center, center);
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
