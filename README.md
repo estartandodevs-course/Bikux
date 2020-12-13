@@ -4,7 +4,7 @@
   </a>
 </p>
 
-Bikux é um site que tem a proposta de ser uma plataforma de emprego formal ou informal, pra pessoas que residem em regiões periféricas.
+Nosso site de recrutamento de pessoas da comunidade, o **Bikux** ajuda moradores da periferia que desejam obter um emprego estável ao reduzir a dificuldade dessas pessoas se candidatarem, eliminar problemas de conhecimentos técnicos, e ofertar cursos para especialização, e por fim, ganhar uma vaga de emprego e alcançar a estabilidade financeira
 
 ## Nossa Stack
 
