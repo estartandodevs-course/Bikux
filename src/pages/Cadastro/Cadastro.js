@@ -36,7 +36,7 @@ const Cadastro = () => {
             onClick={() => {}}
             text="Adicione seu currículo!"
             icon="009-curriculo"
-            iconSize="39.75"
+            iconSize="48"
             disabled={false}
           />
           <div className="space"></div>
@@ -44,7 +44,7 @@ const Cadastro = () => {
             onClick={() => {}}
             text="E que tal uma foto?"
             icon="003-avatar"
-            iconSize="39.75"
+            iconSize="48"
             disabled={false}
           />
         </div>

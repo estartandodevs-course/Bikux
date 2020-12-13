@@ -11,6 +11,8 @@ function Buttons(props) {
     width,
     height,
     fontSize,
+    backgroundColor,
+    color
   } = props;
 
   const ClassPrimary = disabled
@@ -19,9 +21,10 @@ function Buttons(props) {
     ? "primary"
     : "secondary";
   const Class = isOutline ? ClassPrimary + "-outline" : ClassPrimary;
-  const size = {
+  const style = {
     width: width,
     height: height,
+    backgroundColor: backgroundColor,
   };
 
   return (
@@ -29,10 +32,10 @@ function Buttons(props) {
       className={Class}
       disabled={disabled}
       onClick={onClick}
-      style={size}
+      style={style}
     >
       {children && (
-        <span className="Button-children" style={{ fontSize: fontSize }}>
+        <span className="Button-children" style={{ fontSize: fontSize, color: color }}>
           {children}
         </span>
       )}
