@@ -3,7 +3,6 @@
     <img alt="Gatsby" src="src/assets/images/logo.svg" width="300" />
   </a>
 </p>
-
 Bikux é um site que tem a proposta de ser uma plataforma de emprego formal ou informal, pra pessoas que residem em regiões periféricas.
 
 ## Nossa Stack
