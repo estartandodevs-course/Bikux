@@ -1,17 +1,18 @@
 import React from "react";
-import Layout from "../../components/layout/Layout";
 import InputField from "../../components/inputField/inputField";
 import Buttons from "../../components/Buttons/Buttons";
 import { useHistory } from "react-router-dom";
 import "./Cadastro.scss";
-import ActionButton from "../../components/ActionButton/ActionButton";
 import SelectField from "../../components/SelectField/SelectField";
+import { Header, SendFilesBtn } from "../../components";
+import logo from "../../assets/images/logo.svg";
 
 const Cadastro = () => {
   const history = useHistory();
   return (
-    <Layout showHeader>
-      <div>
+    <>
+      <Header showBackButton logo={logo} />
+      <div className="input-container">
         <InputField
           label="E-mail"
           type="email"
@@ -30,31 +31,23 @@ const Cadastro = () => {
           label="Selecione suas áreas de interesse"
           required
         />
-        <div className="icon-container">
-          <div className="icon-btn">
-            <ActionButton
-              isReverse
-              reverseIcon
-              // onClick={semCadastro}
-              children="Adicione seu currículo"
-              icon="009-curriculo"
-              iconSize="39.75"
-              disabled={false}
-            />
-          </div>
-          <div className="icon-btn">
-            <ActionButton
-              isReverse
-              reverseIcon
-              // onClick={semCadastro}
-              children="E que tal uma foto?"
-              icon="003-avatar"
-              iconSize="39.75"
-              disabled={false}
-            />
-          </div>
+        <div className="files-btn">
+          <SendFilesBtn
+            onClick={() => {}}
+            text="Adicione seu currículo!"
+            icon="009-curriculo"
+            iconSize="48"
+            disabled={false}
+          />
+          <div className="space"></div>
+          <SendFilesBtn
+            onClick={() => {}}
+            text="E que tal uma foto?"
+            icon="003-avatar"
+            iconSize="48"
+            disabled={false}
+          />
         </div>
-
         <InputField
           label="CPF"
           type="text"
@@ -73,20 +66,21 @@ const Cadastro = () => {
           placeholder="Confirme sua senha"
           required
         />
-        <div className="btn-container">
-          <Buttons
-            onClick={() => history.push("/")}
-            fontSize={"20px"}
-            width={"301px"}
-            height={"56px"}
-            isPrimary={true}
-            isOutline={false}
-            disabled={false}
-            children="Finalizar cadastro"
-          />
-        </div>
+        <span className="obrigatorio">* Obrigatório</span>
       </div>
-    </Layout>
+      <div className="btn-container">
+        <Buttons
+          onClick={() => history.push("/")}
+          fontSize={"20px"}
+          width={"301px"}
+          height={"56px"}
+          isPrimary={true}
+          isOutline={false}
+          disabled={false}
+          children="Finalizar cadastro"
+        />
+      </div>
+    </>
   );
 };
 

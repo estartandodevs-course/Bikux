@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import Buttons from "../../components/Buttons/Buttons";
 import ActionButton from "../../components/ActionButton/ActionButton";
 import InputField from "../../components/inputField/inputField";
@@ -11,7 +11,6 @@ import { SemCadastroModal } from "../../components";
 import { login } from "../../services/auth.service";
 
 const Login = (props) => {
-
   const history = useHistory();
   const { logo } = props;
   const [isItAble, setIsItAble] = useState(false);
@@ -26,27 +25,23 @@ const Login = (props) => {
     setIsItAble(false);
   }
 
-  
-//"teste@bikux.com"  "123456"
+  //"teste@bikux.com"  "123456"
   //function createUser (email, password) {
-    //return firebase.auth().createUserWithEmailAndPassword(email, password);
+  //return firebase.auth().createUserWithEmailAndPassword(email, password);
   //}
-
 
   async function handleLogin() {
     const response = await login(email, password);
     if (response.success) {
-      setErrorONEmailOrPassword (false);
+      setErrorONEmailOrPassword(false);
       setEmail("");
       setPassword("");
-      history.push("/")
-    }
-    else {
+      history.push("/");
+    } else {
       console.error("ERROR ::", response.data.message);
       setErrorONEmailOrPassword(true);
     }
   }
-
 
   return (
     <Layout>
@@ -57,17 +52,17 @@ const Login = (props) => {
             label="Usuário"
             type="text"
             placeholder="Digite aqui seu e-mail"
-            onChange = {(event) => setEmail(event.target.value)}
-            InputError = {errorONEmailOrPassword}
-            value = {email}
+            onChange={(event) => setEmail(event.target.value)}
+            InputError={errorONEmailOrPassword}
+            value={email}
           />
           <InputField
             label="Senha"
             type="password"
             placeholder="Digite aqui sua senha"
-            onChange = {(event) => setPassword(event.target.value)}
-            InputError = {errorONEmailOrPassword}
-            value = {password}
+            onChange={(event) => setPassword(event.target.value)}
+            InputError={errorONEmailOrPassword}
+            value={password}
           />
         </div>
         <div className="btn-container">

@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss", "../../styles/main.scss";
+
 @mixin flexbox($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
@@ -5,16 +7,32 @@
   align-items: $align;
 }
 
-.icon-container {
-  @include flexbox(row, center, center);
-  padding-top: 5px;
+.input-container {
+  @include flexbox(column, center, center);
+  margin-top: 6px;
+  position: relative;
 
-  &-btn {
-    @include flexbox(column, center, center);
+  .files-btn {
+    @include flexbox(row, center, center);
+
+    .space {
+      margin: 0 24px;
+    }
+  }
+
+  .obrigatorio {
+    @include flexbox(row, flex-end, center);
+    width: 328px;
+    color: $color-error;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: "Kanit";
+    padding-top: 5px;
   }
 }
 
 .btn-container {
   @include flexbox(row, center, center);
-  margin-top: 22px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

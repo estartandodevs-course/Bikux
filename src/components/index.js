@@ -12,6 +12,7 @@ import ConfirmacaoModal from "./ConfirmacaoModal/ConfirmacaoModal";
 import TextArea from "./TextArea/TextArea";
 import SemCadastroModal from "./SemCadastroModal/SemCadastroModal";
 import SelectField from "./SelectField/SelectField";
+import SendFilesBtn from "./SendFilesBtn/SendFilesBtn";
 
 export {
   ActionButton,
@@ -28,4 +29,5 @@ export {
   TextArea,
   SemCadastroModal,
   SelectField,
+  SendFilesBtn,
 };
