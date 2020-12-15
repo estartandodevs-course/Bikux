@@ -5,7 +5,7 @@ import Buttons from "../Buttons/Buttons";
 
 function TellAFriendModal (props) {
 
-    const {close, jobTitle, jobIndex, isdetailsPage} = props;
+    const {close, jobTitle, jobIndex, isdetailsPage, isSearchPage} = props;
 
     const [email, setEmail] = useState("");
 
@@ -25,12 +25,19 @@ function TellAFriendModal (props) {
         const actualUrl = window.location.href.toString();
 
         if (isdetailsPage) {
-
             window.open(`https://api.whatsapp.com/send?text=${actualUrl}`);
 
         } else {
 
-            window.open(`https://api.whatsapp.com/send?text=${actualUrl}detalhes/vaga/${jobIndex}`);
+            if (isSearchPage) {
+                const homeUrl = actualUrl.replace("search", "");
+                console.log(homeUrl);
+                window.open(`https://api.whatsapp.com/send?text=${homeUrl}detalhes/vaga/${jobIndex}`);
+
+            } else {
+                window.open(`https://api.whatsapp.com/send?text=${actualUrl}detalhes/vaga/${jobIndex}`);
+            } 
+     
         }
         
         setTimeout (close, 200)
