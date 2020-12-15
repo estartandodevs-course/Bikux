@@ -59,6 +59,7 @@ const Feed = () => {
             jobTitle={jobTitle}
             jobIndex={jobIndex}
             isdetailsPage = {false}
+            isSearchPage = {false}
             close={closeTellAFriend}
           />
         )}

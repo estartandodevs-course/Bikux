@@ -107,6 +107,7 @@ const Search = () => {
             jobTitle={jobTitle}
             jobIndex={jobIndex}
             isdetailsPage = {false}
+            isSearchPage = {true}
             close={closeTellAFriend}
           />
         )}
