@@ -1,0 +1,52 @@
+@import "../../styles/variables.scss", "../../styles/main.scss";
+
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 38px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+  font-size: 12px;
+  line-height: 26px;
+  width: 328px;
+
+  & .checkmark::after {
+    left: 8px;
+    top: 4px;
+    width: 6px;
+    height: 11px;
+    border: solid $color-orange-light;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border: 2px solid $color-black;
+    border-radius: 4px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+}
+
+.checkbox-container input:checked ~ .checkmark::after {
+  display: block;
+}

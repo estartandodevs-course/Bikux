@@ -1,0 +1,35 @@
+@import "../../styles/variables.scss", "../../styles/main.scss";
+
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.vaga-container {
+  @include flexbox(row, flex-start, center);
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  width: 328px;
+  padding: 16px 0 8px;
+  border-bottom: 3px solid $color-orange-dark;
+
+  .vaga-heading {
+    padding-left: 8px;
+  }
+}
+
+.cadastrar-vaga-container {
+  @include flexbox(column, center, center);
+
+  .checkbox-input {
+    @include flexbox(row, center, center);
+    width: 328px;
+  }
+}
+
+.btn-vaga {
+  margin: 20px auto 80px;
+}

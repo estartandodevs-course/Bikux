@@ -3,7 +3,7 @@ import InputField from "../../components/inputField/inputField";
 import Buttons from "../../components/Buttons/Buttons";
 import { useHistory } from "react-router-dom";
 import "./Cadastro.scss";
-import SelectField from "../../components/SelectField/SelectField";
+import SelectBox from "../../components/SelectBox/SelectBox";
 import { Header, SendFilesBtn } from "../../components";
 import logo from "../../assets/images/logo.svg";
 
@@ -25,7 +25,7 @@ const Cadastro = () => {
           placeholder="Ex.: Bruno da Costa Santos"
           required
         />
-        <SelectField
+        <SelectBox
           onChange={() => {}}
           value=""
           label="Selecione suas áreas de interesse"
@@ -70,7 +70,7 @@ const Cadastro = () => {
       </div>
       <div className="btn-container">
         <Buttons
-          onClick={() => history.push("/")}
+          onClick={() => history.push("/login")}
           fontSize={"20px"}
           width={"301px"}
           height={"56px"}
