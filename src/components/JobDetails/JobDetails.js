@@ -1,128 +1,88 @@
-import React from 'react';
-import Badges from '../Badges/Badges';
-import { ActionButton } from '../';
-import './JobDetails.scss';
+import React from "react";
+import Badges from "../Badges/Badges";
+import { ActionButton } from "../";
+import "./JobDetails.scss";
 import { useHistory } from "react-router-dom";
 import firebase from "firebase/app";
-import jobList from '../../_mocks/jobList';
-import Buttons from '../Buttons/Buttons';
-
+import Buttons from "../Buttons/Buttons";
 
 function JobDetails(props) {
-  const {
-    indexOfCardToBeDetailed,
-    TellAFriend,
-    actionFavorite,
-    IWantThisJob,
-    denounce,
-    favorite,
-  } = props;
+  const { TellAFriend, actionFavorite, IWantThisJob, denounce, job } = props;
 
-  function getDataFromCardToBeDetailed(indexOfCardToBeDetailed) {
-    return jobList.filter(
-      (item) => item['id'].toString() === indexOfCardToBeDetailed,
-    );
-  }
+  const history = useHistory();
 
-  const itemToBeDatailed = getDataFromCardToBeDetailed(indexOfCardToBeDetailed);
+  const isLoggedIn = firebase.auth().currentUser;
 
-  function getImage() {
-    return itemToBeDatailed.map((item) => item.jobImage);
-  }
+  const buttonVaga = isLoggedIn ? (
+    <Buttons
+      fontSize={"20px"}
+      width={"297px"}
+      height={"56px"}
+      isPrimary={true}
+      isOutline={false}
+      children="Quero essa vaga!"
+      onClick={IWantThisJob}
+    />
+  ) : (
+    <Buttons
+      fontSize={"20px"}
+      width={"297px"}
+      height={"56px"}
+      isPrimary={true}
+      isOutline={false}
+      disabled={true}
+      color="#19232c40"
+      children="Necessário realizar login"
+    />
+  );
 
-  const image = getImage();
+  const buttonFavorite = isLoggedIn ? (
+    <ActionButton
+      icon={job.favorite ? "024-favoritado" : "014-favoritar"}
+      iconSize="16"
+      children="Favoritar"
+      onClick={actionFavorite}
+      disabled={false}
+    />
+  ) : (
+    ""
+  );
 
-  function getTitle() {
-    const title = itemToBeDatailed.map((item) => item.title);
-    const TitleReady = title.pop();
-    return TitleReady;
-  }
+  const buttonDenounce = isLoggedIn ? (
+    <div className="denounce-container">
+      <ActionButton
+        icon="015-denunciar"
+        iconSize="16"
+        onClick={denounce}
+        children="Denunciar esta vaga"
+        disabled={false}
+      />
+    </div>
+  ) : (
+    <div className="denounce-container">
+      <ActionButton
+        icon="023-login"
+        iconSize="16"
+        onClick={() => history.push("/login")}
+        children="Entrar"
+        disabled={false}
+      />
+    </div>
+  );
 
-  const title = getTitle();
-
-  function getBadgesList() {
-    const ListOfBadgesList = itemToBeDatailed.map((item) => item.badgesList);
-    const BadgesList = ListOfBadgesList.pop();
-    return BadgesList;
-  }
-
-  const BadgesList = getBadgesList();
-
-  function getDescription() {
-    return itemToBeDatailed.map((item) => item.jobDescription);
-  }
-
-  const description = getDescription();
-
-  function getDetails() {
-    return itemToBeDatailed.map((item) => item.jobDetails);
-  }
-
-//checa se o usuário está autenticado
-
-const history = useHistory();
-
-var isLoggedIn = firebase.auth().currentUser
-
-const buttonVaga = isLoggedIn  ? (
- <Buttons
- fontSize={'20px'}
-width={'297px'}
- height={'56px'}
- isPrimary={true}
- isOutline={false}
- children="Quero essa vaga!"
- onClick={IWantThisJob}/>) : 
- (<Buttons fontSize = {"20px"} 
-   width = {"297px"} 
-   height = {"56px"} 
-   isPrimary = {true} 
-   isOutline = {false} 
-   disabled={true}
-   color = "#19232c40"
-   children = "Necessário realizar login" 
-  />);
-
-const buttonFavorite = isLoggedIn ? (
- <ActionButton
- icon={favorite ? '024-favoritado' : '014-favoritar'}
- iconSize="16"
- children="Favoritar"
- onClick={actionFavorite}
- disabled={false}/>) : 
-  ("");
-
-const buttonDenounce = isLoggedIn ? (
- <div className="denounce-container">
-   <ActionButton
-     icon="015-denunciar"
-     iconSize="16"
-     onClick={denounce}
-     children="Denunciar esta vaga"
-     disabled={false}/>
-   </div>) : 
- (<div className="denounce-container"> 
-   <ActionButton
-     icon="023-login"
-     iconSize="16"
-    onClick = {() => history.push("/login")}
-     children = "Entrar"
-     disabled = {false}/>
- </div>);
-  
   return (
     <div className="job-card-container">
       <div className="card-header">
-        <img src={image} alt="logo da empresa" />
+        <img src={job.imgSrc} alt="logo da empresa" />
         <div className="badges-and-title-container">
-          <h5 className="title-details">{title}</h5>
+          <h5 className="title-details">{job.title}</h5>
           <div className="badges-container">
-            <Badges badgesList={BadgesList} />
+            <Badges badgesList={job.badges} />
           </div>
         </div>
       </div>
-      <h6 className="job-description-title">{description}</h6>
-      <p className="details">{getDetails()}</p>
+      <h6 className="job-description-title">{job.description}</h6>
+      <p className="details">{job.details}</p>
       <div className="buttons-container-details">
         <ActionButton
           className="button"
@@ -130,7 +90,8 @@ const buttonDenounce = isLoggedIn ? (
           iconSize="16"
           onClick={TellAFriend}
           children="Indicar para amigo"
-          disabled={false}/>
+          disabled={false}
+        />
         {buttonFavorite}
       </div>
       {buttonVaga}

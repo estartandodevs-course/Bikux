@@ -2,10 +2,20 @@ import React from "react";
 import "./inputField.scss";
 
 function InputField(props) {
-  const { label, type, placeholder, required, height, width, onChange, InputError, value } = props;
+  const {
+    label,
+    type,
+    placeholder,
+    required,
+    height,
+    width,
+    onChange,
+    InputError,
+    value,
+    name,
+  } = props;
   const labelRequired = required ? "*" : "";
   const InputErrorStyle = InputError ? "error" : "input";
- 
 
   return (
     <div className="input-container">
@@ -15,7 +25,7 @@ function InputField(props) {
           <span className="required">{labelRequired}</span>
         </label>
         <input
-          className = {InputErrorStyle}
+          className={InputErrorStyle}
           style={{
             height: height,
             width: width,
@@ -24,7 +34,8 @@ function InputField(props) {
           type={type}
           placeholder={placeholder}
           required={required}
-          value = {value}
+          value={value}
+          name={name}
         ></input>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {
   JobDetails,
@@ -9,21 +9,19 @@ import {
 import Layout from "../../components/layout/Layout";
 import jobListMock from "../../_mocks/jobList";
 import "./JobDetailsPage.scss";
+import { getApiData } from "../../services/api.service";
 
 function JobDetailsPage() {
   const params = useParams();
   const [isItAble, setIsItAble] = useState(false);
   const [isDenouncing, setIsDenouncing] = useState(false);
   const [confirmationJob, setconfirmationJob] = useState(false);
-  const [item, setItem] = useState(
-    jobListMock.find((item) => item["id"].toString() === params.indexOftoBeSaw)
-  );
+  const [item, setItem] = useState({});
 
-  function getTitle() {
-    const title = item.title;
-
-    return title;
-  }
+  const jobDetailApi = async () => {
+    const response = await getApiData("jobs/" + params.indexOftoBeSaw);
+    setItem(response);
+  };
 
   function favorite() {
     setItem({
@@ -31,8 +29,6 @@ function JobDetailsPage() {
       favorite: !item.favorite,
     });
   }
-
-  const title = getTitle();
 
   function TellAFriend() {
     setIsItAble(true);
@@ -49,7 +45,7 @@ function JobDetailsPage() {
   function IWantThisJob() {
     console.log(
       "quero a vaga de ",
-      title,
+      item.title,
       "cujo index é:",
       params.indexOftoBeSaw
     );
@@ -65,30 +61,33 @@ function JobDetailsPage() {
     setIsDenouncing(false);
   }
 
+  useEffect(() => {
+    jobDetailApi();
+  }, []);
+
   return (
     <Layout showHeader showBottomNavBar>
       <main>
         <JobDetails
-          indexOfCardToBeDetailed={params.indexOftoBeSaw}
+          job={item}
           isUserNotLogged={false}
           TellAFriend={TellAFriend}
           actionFavorite={favorite}
           IWantThisJob={IWantThisJob}
           denounce={denounce}
-          favorite={item.favorite}
         />
         {isItAble && (
           <TellAFriendModal
-            jobTitle={title}
+            jobTitle={item.title}
             jobIndex={params.indexOftoBeSaw}
             close={closeTellAFriend}
-            isdetailsPage = {true}
+            isdetailsPage={true}
           />
         )}
         {isDenouncing && (
           <DenounceModal
             close={closeDenounce}
-            jobTitle={title}
+            jobTitle={item.title}
             jobIndex={params.indexOftoBeSaw}
           />
         )}

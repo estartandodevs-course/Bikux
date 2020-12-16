@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
-import { JobCard, TellAFriendModal } from '../../components/index';
-import Layout from '../../components/layout/Layout';
-import jobListMock from '../../_mocks/jobList';
-import './Feed.scss';
+import React, { useState, useEffect } from "react";
+import { JobCard, TellAFriendModal } from "../../components/index";
+import Layout from "../../components/layout/Layout";
+import { getApiData } from "../../services/api.service";
+import "./Feed.scss";
 
 const Feed = () => {
   const [isItAble, setIsItAble] = useState(false);
-  const [jobTitle, setJobTitle] = useState('');
-  const [jobIndex, setJobIndex] = useState('');
-  const [jobList, setJobList] = useState(jobListMock);
+  const [jobTitle, setJobTitle] = useState("");
+  const [jobIndex, setJobIndex] = useState("");
+  const [jobList, setJobList] = useState([]);
+
+  const jobListApi = async () => {
+    const response = await getApiData("jobs");
+    setJobList(response);
+  };
 
   function tellAFriend(toBeIndicated) {
     const indexOftoBeIndicated = jobList.indexOf(toBeIndicated);
@@ -23,7 +28,7 @@ const Feed = () => {
 
   function Favorite(toBeFavorite) {
     const indexOftoBeFavorite = jobList.indexOf(toBeFavorite);
-    console.log('FAVORITE ::' + indexOftoBeFavorite);
+    console.log("FAVORITE ::" + indexOftoBeFavorite);
     const newJobList = [...jobList];
     newJobList[indexOftoBeFavorite] = {
       ...jobList[indexOftoBeFavorite],
@@ -31,12 +36,16 @@ const Feed = () => {
     };
     setJobList(newJobList);
     console.log(
-      'favoritou a vaga de ',
+      "favoritou a vaga de ",
       toBeFavorite.title,
-      'cujo index é:',
-      indexOftoBeFavorite,
+      "cujo index é:",
+      indexOftoBeFavorite
     );
   }
+
+  useEffect(() => {
+    jobListApi();
+  }, []);
 
   return (
     <Layout showHeader showBottomNavBar>
@@ -44,10 +53,10 @@ const Feed = () => {
         {jobList.map((info) => (
           <JobCard
             key={info.id}
-            badgesList={info.badgesList}
+            badgesList={info.badges}
             title={info.title}
-            jobImage={info.jobImage}
-            jobDescription={info.jobDescription}
+            jobImage={info.imgSrc}
+            jobDescription={info.description}
             actionTellAFriend={tellAFriend.bind(this, info)}
             actionFavorite={Favorite.bind(this, info)}
             indexOftoBeSaw={info.id}
@@ -58,7 +67,7 @@ const Feed = () => {
           <TellAFriendModal
             jobTitle={jobTitle}
             jobIndex={jobIndex}
-            isdetailsPage = {false}
+            isdetailsPage={false}
             close={closeTellAFriend}
           />
         )}
