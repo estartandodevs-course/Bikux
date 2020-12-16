@@ -27,7 +27,13 @@ const Cadastro = () => {
         />
         <SelectBox
           onChange={() => {}}
-          value=""
+          options = {[
+            { label: "Vamos sugerir vagas pensando nisso", value: "" },
+            { label: "Atendimento a cliente", value: "Atendimento a cliente" },
+            { label: "Design", value: "Design" },
+            { label: "Informática/T.I.", value: "Informática/T.I." },
+            { label: "Secretariado", value: "Secretariado" },
+          ]}
           label="Selecione suas áreas de interesse"
           required
         />
